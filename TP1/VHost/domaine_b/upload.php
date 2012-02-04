@@ -9,16 +9,19 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form enctype="multipart/form-data" action="_URL_" method="post">
-            <input type="hidden" name="MAX_FILE_SIZE" value="30000000"/>
+        <ul>
+                <form enctype="multipart/form-data" action="confirmation.php" method="post">
+                <input type="hidden" name="MAX_FILE_SIZE" value="30000000"/>
             
-            <?php
-                for ($i = 0; $i < 10; $i++)
-                {
-                    echo '<input name="userfile[]" type="file">';
-                }
-            ?>
-            <input type="submit" value="Envoyer">
-        </form>
+                    <?php
+                        for ($i = 0; $i < 10; $i++)
+                        {
+                            echo '<li><input name="userfile[]" type="file"></li>';
+                        }
+                    ?>
+                <input type="submit" value="Envoyer">
+                </form>
+        </ul>
+
     </body>
 </html>
