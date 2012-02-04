@@ -25,5 +25,7 @@ and open the template in the editor.
                 echo "le cookie n'existe pas. <br />";
             }
         ?>
+        
+        <a href="upload.php">Exercice upload </a>
     </body>
 </html>

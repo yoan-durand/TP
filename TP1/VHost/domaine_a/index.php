@@ -30,6 +30,7 @@ and open the template in the editor.
                 echo "le cookie n'existe pas. <br />";
             }
             
+            echo "Session courante : ". session_save_path() . "<br/>";           
            
         ?>
     </body>
