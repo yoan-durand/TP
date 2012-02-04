@@ -26,6 +26,11 @@ and open the template in the editor.
             }
         ?>
         
+        <a href="mail.php">Envoyer un mail</a>
+        <br/>
         <a href="upload.php">Exercice upload </a>
+        <br/>
+        <a href="image.php">Exercice image </a>
+        <br/>
     </body>
 </html>
