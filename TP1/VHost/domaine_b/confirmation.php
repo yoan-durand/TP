@@ -12,15 +12,7 @@ and open the template in the editor.
         <?php
         error_reporting(E_ALL);
         ini_set("display_errors", 1);
-
-        if (is_dir('../upload'))
-        {
-            echo "le dossier upload exist <br/>";
-        }
-        if (is_file('confirmation'))
-        {
-            echo "le fichier existe <br />";
-        }
+        
         foreach ($_FILES["userfile"]["error"] as $key => $error)
         {
          if ($error == UPLOAD_ERR_OK)
