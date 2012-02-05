@@ -18,7 +18,7 @@ and open the template in the editor.
             $email_expediteur='durand.yoan.facture@gmail.com';
             $email_reply='yoan.durand@epita.fr';
             $sujet = 'test';
-            $message_txt = 'Yeah'."\n\n".'message format texte';
+            $message_txt = 'Yeah'."\n\n".'message format texte generer a partir de netbenans';
             $message_html='<html>
                     <head>
                         <title> TITRE </title>
