@@ -11,7 +11,7 @@ and open the template in the editor.
     <body>
         <?php
         
-            error_reporting(E_ALL);
+            /*error_reporting(E_ALL);
             ini_set("display_errors", 1);
 
             $destinataire='durand.yoan@gmail.com';
@@ -54,7 +54,32 @@ and open the template in the editor.
             else
             {
                 echo "fail";
-            }
+            }*/
+
+
+// To
+$to = 'durand.yoan@gmail.com';
+
+// Subject
+$subject = 'Developpez.com - Test Mail';
+
+// Headers
+$headers = 'Mime-Version: 1.0'."\r\n";
+$headers .= 'Content-type: text/html; charset=utf-8'."\r\n";
+$headers .= "\r\n";
+
+// Message
+$msg = '<strong>Developpez.com</strong> - Message du mail ...';
+
+// Function mail()
+if(mail($to, $subject, $msg, $headers))
+{
+    echo "mail send";
+}
+else
+{
+        echo "ko";
+}
         ?>
     </body>
 </html>
