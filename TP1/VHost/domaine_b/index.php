@@ -16,15 +16,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        echo "version".  phpversion()."<br />";
-            $gd_info = gd_info();
-            
-            if (!$gd_info)
-            {
-                echo "lib gd pas installe <br/>";
-            }
-            
-            echo "gd version: {$gd_info['GD Version']}"."<br/>";
+        
             if (isset($_COOKIE['cookie']))
             {
                 echo "Cookie : ". $_COOKIE['cookie'] . "<br />";

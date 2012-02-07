@@ -14,9 +14,9 @@ and open the template in the editor.
             error_reporting(E_ALL);
             ini_set("display_errors", 1);
 
-            $destinataire='durand.yona@free.fr';
-            $email_expediteur='durand.yoan.facture@gmail.com';
-            $email_reply='yoan.durand@epita.fr';
+            $destinataire='durand.yoan@gmail.com';
+            $email_expediteur='yoan.durand@epita.fr';
+            $email_reply='yoan.durand@free.fr';
             $sujet = 'test';
             $message_txt = 'Yeah'."\n\n".'message format texte generer a partir de netbenans';
             $message_html='<html>
@@ -28,7 +28,7 @@ and open the template in the editor.
                     </body>
                         </html>';
 
-            $frontiere="----=".  md5(uniqid(mt_rand()));
+            $frontiere="----=".md5(uniqid(mt_rand()));
             
             $header = 'From:"Nom" <'.$email_expediteur.'>'."\n";
             $header .= 'Return-Path <'.$email_reply.'>'."\n";
