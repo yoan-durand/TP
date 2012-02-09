@@ -12,6 +12,8 @@ and open the template in the editor.
         <?php
         error_reporting(E_ALL);
         ini_set("display_errors", 1);
+
+        $max_size = 30000000;
         
         foreach ($_FILES["userfile"]["error"] as $key => $error)
         {
