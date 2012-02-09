@@ -6,7 +6,7 @@ and open the template in the editor.
 <?php
     if (!(isset($_COOKIE['cookie'])))
     {
-        setcookie('cookie', "Cookie creer en domaine-b", 0, '/', 'mon-rack.local');
+        setcookie('cookie', "Cookie creer en domaine-b", time()+10, '/', 'mon-rack.local');
     }
 ?>
 <html>

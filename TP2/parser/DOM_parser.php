@@ -12,9 +12,24 @@ and open the template in the editor.
         <?php
             $dom = new DOMDocument();
             $dom->preserveWhiteSpace = False;
-            $dom->load('xmldata.xml');
+            $dom->load('automobile.xml');
             $dom->formatOutput = TRUE;
-            
+            print $dom->saveXML();
+
+            $root = $dom->documentElement;
+
+            echo "rootAttribs [".$root->attributes->length."]:\n";
+
+            for ($i = 0; $i < $root->attributes->length; $i++)
+            {
+                echo "[".$root->attributes->item($i)->NodeName."] => ";
+                echo $root->attributed->item($i)->NodeValue."\n";
+                if (hasChildNodes () == true)
+                {
+                    $child = $root->firstChild;
+                    echo "";
+                }
+            }
         ?>
     </body>
 </html>
