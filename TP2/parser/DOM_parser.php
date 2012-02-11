@@ -6,28 +6,28 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>DOM PARSER</title>
     </head>
     <body>
         <?php
             $dom = new DOMDocument();
             $dom->preserveWhiteSpace = False;
             $dom->load('automobile.xml');
-            $dom->formatOutput = TRUE;
-            print $dom->saveXML();
+            $dom->saveXML();
 
-            $root = $dom->documentElement;
+            $titlelist = $dom->getElementsByTagName('title');
+            $linklist = $dom->getElementsByTagName('link');
+            $vignlist = $dom->getElementsByTagName('enclosure');
+            $description = $dom->getElementsByTagName('description');
 
-            echo "rootAttribs [".$root->attributes->length."]:\n";
-
-            for ($i = 0; $i < $root->attributes->length; $i++)
+            for ($i = 0; $i < $titlelist->length; $i++)
             {
-                echo "[".$root->attributes->item($i)->NodeName."] => ";
-                echo $root->attributed->item($i)->NodeValue."\n";
-                if (hasChildNodes () == true)
+                echo "<h3>".$titlelist->item ($i)->nodeValue."</h3>\n\t\t";
+                echo "<a href=\"".$titlelist->item($i)->nodeValue."\">".$titlelist->item($i)->nodeValue."</a><br/>\n\t\t";
+                if ($i >= 2)
                 {
-                    $child = $root->firstChild;
-                    echo "";
+                    echo "<image src=\"".$vignlist->item($i - 2)->attributes->item(0)->nodeValue."\"><br/>\n\t\t";
+                    echo "<p>".$description->item($i-1)->nodeValue."</p><br/>\n\t";
                 }
             }
         ?>

@@ -6,9 +6,13 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>TP PARSER</title>
     </head>
     <body>
-        <a href="DOM_parser.php">DOM Parser</a>
+         <h1>Parser</h1>
+        <ol>
+        <li><a href="DOM_parser.php">DOM Parser</a></li>
+
+        </ol>
     </body>
 </html>
