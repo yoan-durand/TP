@@ -12,6 +12,7 @@ and open the template in the editor.
          <h1>Parser</h1>
         <ol>
         <li><a href="DOM_parser.php">DOM Parser</a></li>
+        <li><a href="SimpleXML_parser.php">SimpleXML Parser</a></li>
 
         </ol>
     </body>

@@ -23,7 +23,7 @@ and open the template in the editor.
             for ($i = 0; $i < $titlelist->length; $i++)
             {
                 echo "<h3>".$titlelist->item ($i)->nodeValue."</h3>\n\t\t";
-                echo "<a href=\"".$titlelist->item($i)->nodeValue."\">".$titlelist->item($i)->nodeValue."</a><br/>\n\t\t";
+                echo "<a href=\"".$linklist->item($i)->nodeValue."\">".$linklist->item($i)->nodeValue."</a><br/>\n\t\t";
                 if ($i >= 2)
                 {
                     echo "<image src=\"".$vignlist->item($i - 2)->attributes->item(0)->nodeValue."\"><br/>\n\t\t";
