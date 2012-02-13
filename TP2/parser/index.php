@@ -14,7 +14,7 @@ and open the template in the editor.
         <li><a href="DOM_parser.php">DOM Parser</a></li>
         <li><a href="SimpleXML_parser.php">SimpleXML Parser</a></li>
         <li><a href="SAX_parser.php">SAX Parser</a></li>
-
+        <li><a href="XMLreader.php">XMLreader</a></li>
         </ol>
     </body>
 </html>
