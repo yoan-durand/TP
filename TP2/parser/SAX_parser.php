@@ -16,6 +16,8 @@ and open the template in the editor.
             {
                 global $balisename;
                 global $img;
+                global $pos;
+
 
                 if ($name == "ENCLOSURE")
                 {
@@ -27,6 +29,7 @@ and open the template in the editor.
                 }
                 
                 $balisename = $name;
+                $pos = true;
             }
 
             function endElement($parser, $name)
@@ -38,15 +41,20 @@ and open the template in the editor.
                 {
                     case "TITLE" :
                         echo "<h3>".$text."</h3><br/>";
+                        $pos = false;
+                        $text = "";
                         break;
                     case "LINK" :
                         echo "<a href=\"".$text."\">".$text."</a><br/>\n\t\t";
+                        $pos = false;
+                        $text = "";
                         break;
                     case "ENCLOSURE" :
                         echo "<img src=\"".$img."\"/><br/>\n\t\t";
+                        $pos = false;
+                        $text = "";
                         break;
-                    case "DESCRIPTION" :
-                        echo "<p>".$text."</p><br/>\n\t\t";
+                    
                 }
             }
 
@@ -54,20 +62,17 @@ and open the template in the editor.
             {
                 global $balisename;
                 global $text;
-                switch ($balisename)
+                if (!$pos)
                 {
-                    case "TITLE":
-                        $text = $data;
-                        break;
-                    case "LINK" :
-                        $text = $data;
-                        break;
-                    case "ENCLOSURE" :
-                        $text = "";
-                        break;
-                    case "DESCRIPTION" :
-                        $text = $data;
-                        break;
+                    switch ($balisename)
+                    {
+                        case "TITLE":
+                            $text .= $data;
+                            break;
+                        case "LINK" :
+                            $text .= $data;
+                            break;
+                    }
                 }
             }
             
@@ -77,18 +82,11 @@ and open the template in the editor.
             xml_set_element_handler($parser, "startElement", "endElement");
             xml_set_character_data_handler($parser, "chandler");
 
-            /*if (!xml_parse($parser, $xmlstr, 1))
-            {
-              die(sprink("XML  error: %s at line %d",
-                      xml_error_string(xml_get_error_code($xml_parser)),
-                              xml_get_current_line_number($xml_parser)));
-            }*/
         $fp = fopen($file, "r");
         if (!$fp) die("Impossible d'ouvrir le fichier XML");
 
         $xmlstr = file_get_contents($file);
-        echo $xmlstr;
-        xml_parse($parser, $xmlstr->asXML()) or
+        xml_parse($parser, $xmlstr) or
            die("Erreur XML  ".  xml_error_string(xml_get_error_code($parser))
                 ." ".xml_get_current_line_number($parser));
         
