@@ -12,23 +12,28 @@ and open the template in the editor.
         <?php
             $pxml = new XMLReader();
             $pxml->open('automobile.xml');
-
+            $cpt = 0;
+            
             while ($pxml->read())
             {
-                
-                switch ($pxml->name)
+                if ($cpt % 2 == 0)
                 {
-                case "title" :
-                    echo "<h3>".$pxml->value."</h3><br/>";
-                    break;
-                case "link" :
-                    echo "<a href=\"".$pxml->value."\">".$pxml->value."</a><br/>";
-                    break;
-                case "enclosure" :
-                    echo "<img src=\"".$pxml->getAttribute("url")."\">";
-                    break;
+                    switch ($pxml->name)
+                    {
+                        case "title" :
+                            echo "<h3>".$pxml->readString()."</h3><br/>\n\t\t";
+                            break;
+                        case "link" :
+                            echo "<a href=\"".$pxml->readString()."\">".$pxml->readString()."</a><br/>\n\t\t";
+                            break;
+                        case "enclosure" :
+                            echo "<img src=\"".$pxml->getAttribute("url")."\"><br>\n\t\t";
+                            break;
+                    }        
                 }
+                 $cpt++;
             }
+            $pxml->close ();
 
         ?>
     </body>

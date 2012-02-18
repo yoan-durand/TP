@@ -19,9 +19,10 @@ and open the template in the editor.
             $linklist = $dom->getElementsByTagName('link');
             $vignlist = $dom->getElementsByTagName('enclosure');
             $description = $dom->getElementsByTagName('description');
-
-            for ($i = 0; $i < $titlelist->length; $i++)
+            
+            for ($i = 1; $i < $titlelist->length; $i++)
             {
+                echo "tr";
                 echo "<h3>".$titlelist->item ($i)->nodeValue."</h3>\n\t\t";
                 echo "<a href=\"".$linklist->item($i)->nodeValue."\">".$linklist->item($i)->nodeValue."</a><br/>\n\t\t";
                 if ($i >= 2)

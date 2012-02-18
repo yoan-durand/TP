@@ -13,9 +13,12 @@ and open the template in the editor.
             $filexml = simplexml_load_file('automobile.xml');
            foreach ($filexml->channel->children () as $child => $value)
            {
-                echo "<h3>".$value->title[0]."</h3><br/>\n\t\t";
-                echo "<a href=\"".$value->link[0]."\">".$value->link[0]."</a><br/>\n\t\t";
-                echo "<image src=\"".$value->enclosure['url']."\"/><br/>\n\t\t";
+               if (($value->link[0] != "") && ($value->enclosure['url'] != ""))
+               {
+                    echo "<h3>".$value->title[0]."</h3><br/>\n\t\t";
+                    echo "<a href=\"".$value->link[0]."\">".$value->link[0]."</a><br/>\n\t\t";
+                    echo "<image src=\"".$value->enclosure['url']."\"/><br/>\n\t\t";
+               }
            }
         ?>
     </body>
