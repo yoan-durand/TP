@@ -4,17 +4,17 @@
  *
  * @author durand_y
  */
-class Piece
+ class Piece
 {
-    private $color;
-    private $pos_x;
-    private $pos_y;
-    private $alive;
-
+    protected $color;
+    protected $pos_x;
+    protected $pos_y;
+    protected $alive;  
     
-    public function move ()
-    {
-        
-    }
+    
+    public function color_move ();
+    public function eat ();
+      
+    
 }
 ?>

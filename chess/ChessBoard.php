@@ -14,14 +14,20 @@ class ChessBoard
 
     public function  __construct()
     {
-        for ($i = 0; $i < $length; $i++)
+        for ($i = 0; $i < $this->height; $i++)
         {
-            $line[$i] = new Piece();
-        }
-
-        for ($i = 0; $i < $height; $i++)
-        {
-            $board[$i] = $line;
+            for ($j = 0; $j < $this->length; $j++)
+            {
+                switch ($i)
+                {
+                    case 2:
+                        $line[$j] = new Pawn ($i, $j, "White");
+                        break;
+                    case 7:
+                        $line[$i] = new Pawn($i, $j, "Black");
+                }
+            }
+            $this->board[$i] = $line;
         }
     }
 
