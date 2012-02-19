@@ -6,11 +6,11 @@
  */
 
 /**
- * Description of Knight
+ * Description of None
  *
- * @author durand_y
+ * @author yoan
  */
-class Knight extends Piece
+class None extends Piece
 {
     public function __construct($x, $y, $color, $alive) 
     {
@@ -18,12 +18,13 @@ class Knight extends Piece
         $this->pos_y = $x;
         $this->color = $color;
         $this->alive = $alive;
-        $this->type = "N";
+        $this->type = "-";
     }
     
     public function move($from, $to) 
     {
-        
+        $from = 0;
+        $to = 0;
     }
     
     public function eat ()
@@ -33,10 +34,7 @@ class Knight extends Piece
     
     public function display()
     {
-        if ($this->color == "White")
-            echo "Nw";
-        else 
-            echo "Nb";
+              echo "--";
     }
 }
 

@@ -1,9 +1,5 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of Queen
@@ -18,9 +14,10 @@ class Queen extends Piece
         $this->pos_y = $x;
         $this->color = $color;
         $this->alive = $alive;
+        $this->type = "Q";
     }
     
-    public function color_move() 
+    public function move($from, $to) 
     {
         
     }
@@ -28,6 +25,14 @@ class Queen extends Piece
     public function eat ()
     {
         
+    }
+    
+    public function display()
+    {
+        if ($this->color == "White")
+            echo "Qw";
+        else 
+            echo "Qb";
     }
 }
 

@@ -21,9 +21,10 @@ class Pawn extends Piece
         $this->color = $color;
         $this->alive = $alive;
         $this->first = 0;
+        $this->type = "P";
     }
-    
-    public function color_move() 
+        
+    public function move($from, $to) 
     {
         if ($this->first == 0)
         {
@@ -35,6 +36,14 @@ class Pawn extends Piece
     public function eat ()
     {
         
+    }
+    
+    public function display()
+    {
+        if ($this->color == "White")
+            echo "Pw";
+        else 
+            echo "Pb";
     }
 }
 

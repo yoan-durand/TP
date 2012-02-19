@@ -1,0 +1,17 @@
+/* 
+    Document   : style
+    Created on : Feb 19, 2012, 3:54:54 PM
+    Author     : yoan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+h1
+{
+    color: blueviolet;
+}
+

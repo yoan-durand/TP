@@ -10,7 +10,7 @@
  *
  * @author durand_y
  */
-class King 
+class King extends Piece
 {
     public function __construct($x, $y, $color, $alive) 
     {
@@ -18,9 +18,10 @@ class King
         $this->pos_y = $x;
         $this->color = $color;
         $this->alive = $alive;
-    }
+        $this->type = "K";
+     }
     
-    public function color_move() 
+    public function move($from, $to) 
     {
         
     }
@@ -28,6 +29,14 @@ class King
     public function eat ()
     {
         
+    }
+    
+    public function display()
+    {
+        if ($this->color == "White")
+            echo "Kw";
+        else 
+            echo "Kb";
     }
 }
 

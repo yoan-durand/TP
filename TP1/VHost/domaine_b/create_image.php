@@ -1,7 +1,7 @@
 <?php
     header("Content-Type: image/jpeg");
     $img_src = imagecreatefromjpeg("../image/XV_france.jpg");
-    $img_lg = imagecreatefrompng("../image/logo.png");
+    $img_lg = imagecreatefrompng("../../chess/image/carre_grise.png");
     $img_dst = imagecreatetruecolor (800, 600);
     
     $lrg_src = imagesx($img_src);

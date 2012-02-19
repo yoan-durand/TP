@@ -1,12 +1,15 @@
 <!DOCTYPE HTML">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset=UTF-8">
+        <link rel="stylesheet" href="image/style.css" /> 
         <title>Chess</title>
     </head>
     <body>
+        <h1>Chess</h1>
         <?php
-            echo "<h1>Chess</h1>";
+                     
+            echo "<a href=\"Jeu.php\">Jouer aux echecs</a>"
         ?>
     </body>
 </html>

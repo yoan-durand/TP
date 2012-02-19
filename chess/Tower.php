@@ -14,13 +14,14 @@ class Tower extends Piece
 {
     public function __construct($x, $y, $color, $alive) 
     {
-        $this->pos_x = $x;
-        $this->pos_y = $y;
+        $this->pos_x = $y;
+        $this->pos_y = $x;
         $this->color = $color;
         $this->alive = $alive;
+        $this->type = "T";
     }
     
-    public function color_move() 
+    public function move($from, $to) 
     {
         
     }
@@ -28,6 +29,14 @@ class Tower extends Piece
     public function eat ()
     {
         
+    }
+    
+    public function display()
+    {
+        if ($this->color == "White")
+            echo "Tw";
+        else 
+            echo "Tb";
     }
     
 }

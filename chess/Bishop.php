@@ -18,9 +18,10 @@ class Bishop extends Piece
         $this->pos_y = $x;
         $this->color = $color;
         $this->alive = $alive;
+        $this->type = "B";
     }
     
-    public function color_move() 
+    public function move($from, $to) 
     {
         
     }
@@ -28,6 +29,14 @@ class Bishop extends Piece
     public function eat ()
     {
         
+    }
+    
+    public function display()
+    {
+        if ($this->color == "White")
+            echo "Bw";
+        else 
+            echo "Bb";
     }
 }
 

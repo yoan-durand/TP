@@ -9,6 +9,7 @@ and open the template in the editor.
         <title> Exercice Image</title>
     </head>
     <body>
-        <img src="create_image.php" />
+		<img src="create_image.php" />
+		<p>test</p>
     </body>
 </html>
