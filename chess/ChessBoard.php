@@ -4,6 +4,8 @@
  *
  * @author durand_y
  */
+error_reporting (E_ALL);
+ini_set ("display_errors", 1);
 
 class ChessBoard
 {
@@ -25,7 +27,6 @@ class ChessBoard
      //constructor
     public function  __construct()
     {
-        echo "moncul";
          $this->correspondance["a"] = 0;
          $this->correspondance["b"] = 1;
          $this->correspondance["c"] = 2;
