@@ -26,10 +26,11 @@ class Pawn extends Piece
         
     public function move($from, $to) 
     {
-        if ($this->first == 0)
-        {
-            
-        }
+        $chessboard = ChessBoard::get_instance();
+        unset($chessboard->board[$chessboard->correspondance[$to[0]][$to[1]]]);
+        $chessboard->board[$chessboard->correspondance[$to[0]][$to[1]]] = new Pawn($chessboard->correspondance[$to[0]], $to[1], $chessboard->board[$chessboard->correspondance[$from[0]][$from[1]]]->color , TRUE);
+        unset($chessboard->board[$chessboard->correspondance[$from[0]][$from[1]]]);
+        $chessboard->board[$chessboard->correspondance[$from[0]][$from[1]]] = new None($chessboard->correspondance[$from[0]], $from[1], "", FALSE);
         
     }
     
@@ -44,6 +45,50 @@ class Pawn extends Piece
             echo "Pw";
         else 
             echo "Pb";
+    }
+
+    public function check($to) 
+    {
+        $chessboard = ChessBoard::get_instance();
+        if ($this->first == 0)
+        {
+            $this->first++;
+            if ((($to[1] == ($this->pos_y + 2)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 2][$this->pos_x]->type == "-"))
+            {
+              return true;
+            }
+            elseif ((($to[1] == ($this->pos_y + 1)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-"))
+                return true;
+            elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
+                                                        (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
+            {
+                if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
+                {
+                    return true;
+                }
+                else
+                    return false;
+               
+            }
+        }
+        else
+        {
+            if (($to[1] == ($this->pos_y + 1) && ($chessboard->correspondance[$to[0]] == $this->pos_x))&& ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-") ) 
+            {
+                return true;
+            }
+            elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
+                                                        (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
+            {
+                if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+
+        }
     }
 }
 
