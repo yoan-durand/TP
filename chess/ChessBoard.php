@@ -25,6 +25,7 @@ class ChessBoard
      //constructor
     public function  __construct()
     {
+        echo "moncul";
          $this->correspondance["a"] = 0;
          $this->correspondance["b"] = 1;
          $this->correspondance["c"] = 2;
@@ -36,6 +37,7 @@ class ChessBoard
             
         for ($i = 0; $i < $this->height; $i++)
         {
+           
             for ($j = 0; $j < $this->length; $j++)
             {
                 switch ($i)
@@ -107,6 +109,7 @@ class ChessBoard
                         default :
                             $this->board[$i][$j] = new None($i, $j, "", FALSE);
                         break;
+                    echo "fin moncul";
                 }
             }
         }

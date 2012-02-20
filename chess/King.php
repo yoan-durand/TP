@@ -38,6 +38,10 @@ class King extends Piece
         else 
             echo "Kb";
     }
+
+    public function check($to) {
+        
+    }
 }
 
 ?>

@@ -15,7 +15,7 @@ and open the template in the editor.
                include $class_name . '.php';
             }
             
-            echo "<img src=\"affiche_image.php\" alt=\"echequier\"/><br/><br/><br/><br/>";           
+            //echo "<img src=\"affiche_image.php\" alt=\"echequier\"/><br/><br/><br/><br/>";           
             $chessboard = ChessBoard::get_instance();
            
             $chessboard->display();

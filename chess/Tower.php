@@ -38,6 +38,10 @@ class Tower extends Piece
         else 
             echo "Tb";
     }
+
+    public function check($to) {
+        
+    }
     
 }
 

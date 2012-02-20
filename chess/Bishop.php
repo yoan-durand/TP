@@ -38,6 +38,10 @@ class Bishop extends Piece
         else 
             echo "Bb";
     }
+
+    public function check($to) {
+        
+    }
 }
 
 ?>

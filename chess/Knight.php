@@ -38,6 +38,10 @@ class Knight extends Piece
         else 
             echo "Nb";
     }
+
+    public function check($to) {
+        
+    }
 }
 
 ?>
