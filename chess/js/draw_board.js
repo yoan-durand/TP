@@ -66,16 +66,16 @@ window.onload = function ()
                                     context.closePath();
                                     
                                 }
-                            }
-                               /* else
+                            
+                                else
                                     {
                                     context.beginPath();
-                                    context.moveTo(0, 0);
-                                    context.lineTo(0, 100);
-                                    context.lineTo(100, 100);
-                                    context.lineTo(100, 0);
-                                    context.lineTo(0, 0);
-                                    context.stroke();    
+                                    context.lineTo(((j+1)*100), (i*100));
+                                    context.lineTo(((j+1)*100) , ((i+1) * 100));
+                                    context.lineTo((j*100), (100*(i+1)));                               
+                                    context.lineTo((j * 100), (i*100));
+                                    context.stroke ();
+                                    context.closePath();    
                                     }
                             }
                             else
@@ -83,24 +83,24 @@ window.onload = function ()
                                     if (j % 2 == 0)    
                                 {
                                     context.beginPath();
-                                    context.moveTo(0, 0);
-                                    context.lineTo(0, 100);
-                                    context.lineTo(100, 100);
-                                    context.lineTo(100, 0);
-                                    context.lineTo(0, 0);
+                                    context.lineTo(((j+1)*100), (i*100));
+                                    context.lineTo(((j+1)*100) , ((i+1) * 100));
+                                    context.lineTo((j*100), (100*(i+1)));                               
+                                    context.lineTo((j * 100), (i*100));
                                     context.stroke ();
+                                    context.closePath();
                                 }
                                 else
                                     {
                                     context.beginPath();
-                                    context.moveTo(0, 0);
-                                    context.lineTo(0, 100);
-                                    context.lineTo(100, 100);
-                                    context.lineTo(100, 0);
-                                    context.lineTo(0, 0);
-                                    context.fill();    
+                                    context.lineTo(((j+1)*100), (i*100));
+                                    context.lineTo(((j+1)*100) , ((i+1) * 100));
+                                    context.lineTo((j*100), (100*(i+1)));                               
+                                    context.lineTo((j * 100), (i*100));
+                                    context.fill ();
+                                    context.closePath();    
                                     }
-                                }*/
+                                }
                     }
             }
 }

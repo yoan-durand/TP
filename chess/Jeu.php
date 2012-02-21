@@ -13,6 +13,7 @@ and open the template in the editor.
         <canvas id="mon_canvas" width="800" height="800">
             looser tu supporte pas canvas
         </canvas>
+        <br/>
         <?php
             function __autoload($class_name) 
             {
