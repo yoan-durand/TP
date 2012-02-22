@@ -35,7 +35,7 @@ class Queen extends Piece
             echo "Qb";
     }
 
-    public function check($to) {
+    public function check($from, $to) {
         
     }
 }

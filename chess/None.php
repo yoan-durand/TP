@@ -37,7 +37,7 @@ class None extends Piece
               echo "--";
     }
 
-    public function check($to) {
+    public function check($from, $to) {
         
     }
 }

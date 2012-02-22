@@ -19,7 +19,7 @@
      * eat take a piece from the opponent
      */
     abstract public function move ($from, $to);
-    abstract public function check ($to);
+    abstract public function check ($from,$to);
     abstract public function eat ();
     
     //display the piece

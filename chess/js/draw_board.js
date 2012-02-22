@@ -103,4 +103,23 @@ window.onload = function ()
                                 }
                     }
             }
+    function localiser(e)
+    {
+        if (navigator.appName == "Netscape")
+        {
+            document.captureEvents(Event.CLICK);
+        }
+        if (navigator.appName == "Microsoft Internet Explorer")
+        {
+            sX = event.clientX; sY = event.clientY;
+        }
+        else 
+        {
+            sX = e.pageX;sY = e.pageY;
+        }
+            alert("Coordonnées du clic x = " + sX + " et y = " + sY);
+    }
+    document.onclick=localiser;            
+            
 }
+

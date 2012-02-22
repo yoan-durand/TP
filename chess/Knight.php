@@ -39,8 +39,11 @@ class Knight extends Piece
             echo "Nb";
     }
 
-    public function check($to) {
-        
+   
+
+    public function check($from, $to) 
+    {
+    
     }
 }
 

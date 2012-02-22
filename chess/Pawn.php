@@ -47,47 +47,54 @@ class Pawn extends Piece
             echo "Pb";
     }
 
-    public function check($to) 
+    public function check($from,$to) 
     {
         $chessboard = ChessBoard::get_instance();
-        if ($this->first == 0)
+        if (($chessboard->correspondance[$to[0]] >= 0) && ($chessboard->correspondance[$to[0]] < 8) && ($to[1] >= 0) && ($to[1] < 8))
         {
-            $this->first++;
-            if ((($to[1] == ($this->pos_y + 2)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 2][$this->pos_x]->type == "-"))
+            if ($this->first == 0)
             {
-              return true;
-            }
-            elseif ((($to[1] == ($this->pos_y + 1)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-"))
+                $this->first++;
+                if ((($to[1] == ($this->pos_y + 2)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 2][$this->pos_x]->type == "-"))
+                {
                 return true;
-            elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
-                                                        (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
+                }
+                elseif ((($to[1] == ($this->pos_y + 1)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-"))
+                    return true;
+                elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
+                                                            (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
+                {
+                    if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
+                    {
+                        return true;
+                    }
+                    else
+                        return false;
+
+                }
+            }
+            else
             {
-                if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
+                if (($to[1] == ($this->pos_y + 1) && ($chessboard->correspondance[$to[0]] == $this->pos_x))&& ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-") ) 
                 {
                     return true;
                 }
-                else
-                    return false;
-               
+                elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
+                                                            (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
+                {
+                    if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
+                    {
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+
             }
         }
         else
         {
-            if (($to[1] == ($this->pos_y + 1) && ($chessboard->correspondance[$to[0]] == $this->pos_x))&& ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-") ) 
-            {
-                return true;
-            }
-            elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
-                                                        (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
-            {
-                if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
-                {
-                    return true;
-                }
-                else
-                    return false;
-            }
-
+            return false;
         }
     }
 }

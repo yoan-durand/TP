@@ -39,7 +39,7 @@ class King extends Piece
             echo "Kb";
     }
 
-    public function check($to) {
+    public function check($from, $to) {
         
     }
 }
