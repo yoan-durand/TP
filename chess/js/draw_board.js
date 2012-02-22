@@ -20,35 +20,11 @@ window.onload = function ()
         {
             alert ("impossible de recupere le context canvas");
             return;
-        }
-        /*
-        context.beginPath();
-        context.moveTo (0, 0);
-        context.lineTo(100,  0);
-        context.lineTo(100, 100);
-        context.lineTo(0,  100);                               
-        context.lineTo(0, 0);
-        context.fill ();
-        context.closePath();
-        context.beginPath();
-        context.lineTo(200,  0);
-        context.lineTo(200, 100);
-        context.lineTo(100,  100);                               
-        context.lineTo(100, 0);
-        context.stroke ();
-        context.closePath();
-        context.beginPath();
-        context.lineTo(300,  0);
-        context.lineTo(300, 100);
-        context.lineTo(200,  100);                               
-        context.lineTo(200, 0);
-        context.fill ();
-        context.closePath();*/
-
-        
-        
+        }      
         var i = 0;
         var j = 0;
+        var mouseX = 0;
+        var mouseY = 0;
         for (i = 0; i < 8; i++)
             {
                 for (j = 0; j < 8; j++)
@@ -102,31 +78,15 @@ window.onload = function ()
                                     }
                                 }
                     }
-            }
-    function localiser(e)
+            }  
+    function clic(e)
     {
-        if (navigator.appName == "Netscape")
-        {
-            document.captureEvents(Event.CLICK);
-        }
-        if (navigator.appName == "Microsoft Internet Explorer")
-        {
-            sX = event.clientX;sY = event.clientY;
-        }
-        else 
-        {
-            sX = e.pageX;
-            sY = e.pageY;
-        }
-            alert("Coordonnées du clic x = " + sX + " et y = " + sY);
+    mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+    mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+
+    context.fillStyle= "blue";
+    context.fillRect((mouseX/100) * 100, (mouseY/100) * 100, 100,100);
     }
-    document.onclick=localiser;  
-    document.onclick= "context.beginPath ();\n\
-                       context.lineTo ((sX/100) * 100, (sY) * 100);\n\
-                       context.lineTo ((sX/100) * 100, (sY) * 100)\n\
-                       context.lineTo((sX/100) * 100, (sY) * 100)\n\
-                       context.lineTo((sX/100) * 100, (sY) * 100)\n\
-                       context.fill ();\n\
-                       context.closePath ();  "
+    document.onclick = clic;
 }
 
