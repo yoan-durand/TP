@@ -6,6 +6,7 @@ window.onload = function ()
 {
     var canvas = document.getElementById('mon_canvas');
     
+    
         if (!canvas)
             {
                 alert("impossible de recuperer le canvas");
@@ -82,7 +83,20 @@ window.onload = function ()
             var select = false;
             var ancientX = 0;
             var ancientY = 0;
-            
+    
+    
+        var qw = new Image ();
+        qw.onload = function()
+        {
+            context.drawImage(qw, 400, 0, 100, 100);
+            context.moveTo(400, 0);
+            context.lineTo(500, 0);
+            context.lineTo(500, 100);
+            context.lineTo(400, 100);
+            context.lineTo(400, 0);
+            context.stroke();
+        }
+        qw.src = '../image/whitequeen.png';
             
     function clic(e)
     {
@@ -140,5 +154,8 @@ window.onload = function ()
             select = true;
        } 
     document.onclick = clic;
-}
+    
+    
+    
+}   
 
