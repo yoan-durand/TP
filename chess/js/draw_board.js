@@ -111,15 +111,22 @@ window.onload = function ()
         }
         if (navigator.appName == "Microsoft Internet Explorer")
         {
-            sX = event.clientX; sY = event.clientY;
+            sX = event.clientX;sY = event.clientY;
         }
         else 
         {
-            sX = e.pageX;sY = e.pageY;
+            sX = e.pageX;
+            sY = e.pageY;
         }
             alert("Coordonnées du clic x = " + sX + " et y = " + sY);
     }
-    document.onclick=localiser;            
-            
+    document.onclick=localiser;  
+    document.onclick= "context.beginPath ();\n\
+                       context.lineTo ((sX/100) * 100, (sY) * 100);\n\
+                       context.lineTo ((sX/100) * 100, (sY) * 100)\n\
+                       context.lineTo((sX/100) * 100, (sY) * 100)\n\
+                       context.lineTo((sX/100) * 100, (sY) * 100)\n\
+                       context.fill ();\n\
+                       context.closePath ();  "
 }
 

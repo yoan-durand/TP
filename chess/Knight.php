@@ -43,6 +43,12 @@ class Knight extends Piece
 
     public function check($from, $to) 
     {
+        $chessboard = ChessBoard::get_instance();
+        
+        if (($to[1] >=0) && ($to[1] < 8) && ($chessboard->correspondance[$to[0]] >= 0) && ($chessboard->correspondance[$to[0]] < 8))
+        {
+            
+        }
     
     }
 }
