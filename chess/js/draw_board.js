@@ -78,15 +78,67 @@ window.onload = function ()
                                     }
                                 }
                     }
-            }  
+            }
+            var select = false;
+            var ancientX = 0;
+            var ancientY = 0;
+            
+            
     function clic(e)
     {
-    mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-    mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-
-    context.fillStyle= "blue";
-    context.fillRect((mouseX/100) * 100, (mouseY/100) * 100, 100,100);
-    }
+        if (select)
+        {
+            var x = ancientX / 100;
+            var y = ancientY / 100;
+                        
+            context.clearRect(ancientX, ancientY, 100, 100);
+            
+            if (x % 2 == 0)
+                {
+                    if (y % 2 == 0)
+                        {
+                            context.fillStyle = "black";
+                            context.fillRect(ancientX, ancientY, 100, 100);
+                        }
+                        else
+                            {
+                                context.strokeStyle = "black";
+                                context.strokeRect(ancientX, ancientY, 100, 100);
+                            }
+                            
+                }
+                else
+                    {
+                        if (y % 2 == 0)
+                            {
+                                context.strokeStyle = "black";
+                                context.strokeRect(ancientX, ancientY, 100, 100);
+                            }
+                            else
+                                {
+                                    context.fillStyle = "black";
+                                    context.fillRect(ancientX, ancientY, 100, 100);
+                                }
+                    }
+            select = false;
+            
+        }
+            mouseX = e.clientX ;
+            mouseY = e.clientY ;
+            while (mouseX % 100 != 0)
+                {
+                    mouseX--;
+                }
+            while (mouseY % 100 != 0)
+                {
+                    mouseY--;
+                }
+                ancientX = mouseX;
+                ancientY = mouseY;
+            context.fillStyle= "rgba(0, 0, 255, 0.5)";
+            context.fillRect(mouseX, mouseY, 100, 100);
+            select = true;
+       } 
     document.onclick = clic;
 }
 
