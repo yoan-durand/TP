@@ -145,8 +145,10 @@ window.onload = function ()
             context.fillStyle= "rgba(0, 0, 255, 0.5)";
             context.fillRect(mouseX, mouseY, 100, 100);
             select = true;
+            document.onclick = testajax;
        } 
     document.onclick = clic;
+    
    var qw = new Image ();
         qw.onload = function()
         {
@@ -248,5 +250,22 @@ window.onload = function ()
             }
     }
     pb.src = '../image/nP.png';
+    
+    ///Code AJAX pour interagir avec PHP
+    function testajax (){
+    var xhr = new XMLHttpRequest();
+    var mx = encodeURIComponent(mouseX/100);
+    var my = encodeURIComponent(mouseY/100 );
+    xhr.open('GET', 'http://chess.local/Jeu.php?mousex='+mx+'mousey='+my);
+    xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
+
+        if (xhr.readyState == 4 && xhr.status == 200) { // Si le fichier est chargé sans erreur
+            alert ('haha');
+        }
+
+    };
+    xhr.send(null);
+    }
+    
 }   
 

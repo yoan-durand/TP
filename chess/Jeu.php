@@ -20,6 +20,11 @@ and open the template in the editor.
                include $class_name . '.php';
             }
             
+            $mx = 0;
+            $my = 0;
+            
+            echo htmlspecialchars($_GET["mx"])."<br/>";
+            echo htmlspecialchars($_GET["my"])."<br/>";
                      
             $chessboard = ChessBoard::get_instance();
            
