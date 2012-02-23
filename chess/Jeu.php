@@ -23,9 +23,11 @@ and open the template in the editor.
             $mx = 0;
             $my = 0;
             
-            echo htmlspecialchars($_GET["mx"])."<br/>";
-            echo htmlspecialchars($_GET["my"])."<br/>";
-                     
+            $mx = $_POST["mx"];
+            $my = $_POST["my"];
+                 
+            echo $my."<br>";
+            echo $my."<br/>";
             $chessboard = ChessBoard::get_instance();
            
             $chessboard->display();

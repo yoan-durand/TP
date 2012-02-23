@@ -256,15 +256,15 @@ window.onload = function ()
     var xhr = new XMLHttpRequest();
     var mx = encodeURIComponent(mouseX/100);
     var my = encodeURIComponent(mouseY/100 );
-    xhr.open('GET', 'http://chess.local/Jeu.php?mousex='+mx+'mousey='+my);
+    xhr.open("POST", "Jeu.php");
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
 
         if (xhr.readyState == 4 && xhr.status == 200) { // Si le fichier est chargé sans erreur
-            alert ('haha');
+            alert ('haha'+mx+my);
         }
 
     };
-    xhr.send(null);
+    xhr.send("mx="+mx+"my="+my);
     }
     
 }   
