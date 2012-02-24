@@ -256,16 +256,19 @@ window.onload = function ()
     var xhr = new XMLHttpRequest();
     var mx = (mouseX/100);
     var my = (mouseY/100 );
-
+    
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
-
-        if (xhr.readyState == 4 && xhr.status == 200) { // Si le fichier est chargé sans erreur
-           var json_resp = eval('('+xhr.responseText+')');
-           alert (json_resp);
+        if (xhr.readyState == 4 && xhr.status == 200) { 
+           alert ('mabite');
+           alert (xhr.responseText);
         }
+        else
+            {
+                alert ('fail');
+            }
 
     };
-        xhr.open("Get", "ajax.php?mx="+mx+"&my="+my, true);
+        xhr.open("GET", "http://chess.local/ajax.php?mx="+mx+"&my="+my, true);
     xhr.send(null);
     }
     

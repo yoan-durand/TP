@@ -2,23 +2,19 @@
     header("Content-Type: application/json");
     session_start();
     
-    
-    $_SESSION["chessboard"] = $chessboard;
-
-    $_SESSION["chessboard"]->display();
-    
     $x = 0;
     $y = 0;
-
+    function __autoload($class_name) 
+    {
+        include $class_name . '.php';
+    }
     $x = $_GET["mx"];
     $y = $_GET["my"];
-
-    $tab = $_SESSION["chessboard"][$x][$y]->check ($x, $y);
+    echo $x;
+    echo $y;
+    $test = $_SESSION["chessboard"];
+    $tab = $test->board[$x][$y]->check($x, $y);
     $my_encode_array = json_encode($tab);
     echo $my_encode_array;
-    $chessboard = ChessBoard::get_instance();
-
-    $_SESSION["chessboard"] = $chessboard;
-
-    $_SESSION["chessboard"]->display();
+    
 ?>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -55,25 +55,25 @@ class Pawn extends Piece
         $array = array (0);
         if ($this->first == 0)
         {
-            if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard[$to+1][$from-1] != "-")
+            if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard->board[$to+1][$from-1]->type != "-")
             {
                $array[$cpt] = $from - 1;
                 $array[$cpt] = $to + 1;
                 $cpt++;
             }
-            if (((($to+1) < 8) && ($from < 8)) &&$chessboard[$to+1][$from] == "-")
+            if (((($to+1) < 8) && ($from < 8)) &&$chessboard->board[$to+1][$from]->type == "-")
             {
                 $array[$cpt] = $from;
                 $array[$cpt] = $to + 1;
                 $cpt++;
             }
-            if (((($to+1) < 8) && ($to+2 < 8) && ($from < 8)) &&$chessboard[$to+2][$from] == "-")
+            if (((($to+1) < 8) && ($to+2 < 8) && ($from < 8)) &&$chessboard->board[$to+2][$from]->type == "-")
             {
                 $array[$cpt] = $from;
                 $array[$cpt] = $to + 2;
                 $cpt++;
             }
-            if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard[$to+1][$from + 1] != "-" )
+            if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard->board[$to+1][$from + 1]->type != "-" )
             {
                 $array[$cpt] = $from + 1;
                 $array[$cpt] = $to + 1;
@@ -83,19 +83,19 @@ class Pawn extends Piece
         }
         else
             {
-                if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard[$to+1][$from-1] != "-")
+                if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard->board[$to+1][$from-1]->type != "-")
                 {
                 $array[$cpt] = $from - 1;
                     $array[$cpt] = $to + 1;
                     $cpt++;
                 }
-                if (((($to+1) < 8) && ($from< 8)) &&$chessboard[$to+1][$from] == "-")
+                if (((($to+1) < 8) && ($from< 8)) &&$chessboard->board[$to+1][$from]->type == "-")
                 {
                     $array[$cpt] = $from;
                     $array[$cpt] = $to + 1;
                     $cpt++;
                 }
-                if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard[$to+1][$from + 1] != "-" )
+                if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard->board[$to+1][$from + 1]->type != "-" )
                 {
                     $array[$cpt] = $from + 1;
                     $array[$cpt] = $to + 1;
