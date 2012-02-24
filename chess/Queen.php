@@ -17,6 +17,18 @@ class Queen extends Piece
         $this->type = "Q";
     }
     
+    //getter setter
+    
+    public function __get($name) 
+    {
+        return $this->$name;
+    }
+
+    public function __set($name, $value) 
+    {
+        $this->$name = $value;
+    }
+    
     public function move($from, $to) 
     {
         

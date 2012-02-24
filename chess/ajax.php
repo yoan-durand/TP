@@ -12,12 +12,9 @@
     
     $x = $_GET["mx"];
     $y = $_GET["my"];
-    echo $x;
-    echo $y;
     $test = $_SESSION["chessboard"];
-    $chess = ChessBoard::get_instance();
-    $chess->board = $test;
-    $tab = $chess->board[$x][$y]->check($x, $y);
+    
+    $tab = $test->board[$y][$x]->check($x, $y);
     $my_encode_array = json_encode($tab);
     echo $my_encode_array;
     

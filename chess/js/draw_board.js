@@ -258,19 +258,31 @@ window.onload = function ()
     var my = (mouseY/100 );
     
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
-        if (xhr.readyState == 4 && xhr.status == 200) { 
-           alert ('mabite');
+        if (xhr.readyState == 4 && xhr.status == 200) {
            alert (xhr.responseText);
+            var json = eval('('+xhr.responseText+')');
+            alert (json);
+            colorcase(json);
         }
-        else
-            {
-                alert ('fail');
-            }
 
     };
         xhr.open("GET", "http://chess.local/ajax.php?mx="+mx+"&my="+my, true);
     xhr.send(null);
     }
     
+    
+    function colorcase(tablo)
+    {
+        var i = 0;
+        
+        for (i = 0; i < tablo.length; i++)
+            {
+                if (i % 2 == 0)
+                    {
+                        context.fillStyle= "rgba(0,0,255,0.5)";
+                        context.fillRect(tablo[i]*100, tablo[i+1]*100, 100, 100);
+                    }
+            }
+    }
 }   
 

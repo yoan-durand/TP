@@ -27,7 +27,7 @@ and open the template in the editor.
             }
             $chessboard = ChessBoard::get_instance();
            
-            $_SESSION["chessboard"] = $chessboard->board;
+            $_SESSION["chessboard"] = $chessboard;
             
             $_SESSION["chessboard"];
             

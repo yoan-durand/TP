@@ -21,6 +21,18 @@ class Bishop extends Piece
         $this->type = "B";
     }
     
+    //getter setter
+    
+    public function __get($name) 
+    {
+        return $this->$name;
+    }
+
+    public function __set($name, $value) 
+    {
+        $this->$name = $value;
+    }
+    
     public function move($from, $to) 
     {
         

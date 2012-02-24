@@ -23,8 +23,19 @@ class ChessBoard
             {
                include $class_name . '.php';
             }
+
+   //getter setter
+   public function __get($name) 
+   {
+       return $this->$name;
+   }
             
-     //constructor
+  public function __set($name, $value) 
+  {
+      $this->$name = $value;
+  }
+
+  //constructor
     public function  __construct()
     {
          $this->correspondance["a"] = 0;
