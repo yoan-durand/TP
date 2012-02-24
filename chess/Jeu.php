@@ -5,6 +5,10 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
+        <?php
+       // header("Content-Type: application/json");
+        session_start();
+        ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>The Game</title>
         <script src="js/draw_board.js"></script>
@@ -15,22 +19,19 @@ and open the template in the editor.
         </canvas>
         <br/>
         <?php
+            
+            
             function __autoload($class_name) 
             {
                include $class_name . '.php';
             }
-            
-            $mx = 0;
-            $my = 0;
-            
-            $mx = $_POST["mx"];
-            $my = $_POST["my"];
-                 
-            echo $my."<br>";
-            echo $my."<br/>";
             $chessboard = ChessBoard::get_instance();
            
-            $chessboard->display();
+            $_SESSION["chessboard"] = $chessboard;
+            
+            $_SESSION["chessboard"]->display();
+            
+            
         ?>
     </body>
 </html>

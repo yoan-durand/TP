@@ -145,7 +145,7 @@ window.onload = function ()
             context.fillStyle= "rgba(0, 0, 255, 0.5)";
             context.fillRect(mouseX, mouseY, 100, 100);
             select = true;
-            document.onclick = testajax;
+            ajax ();
        } 
     document.onclick = clic;
     
@@ -252,19 +252,21 @@ window.onload = function ()
     pb.src = '../image/nP.png';
     
     ///Code AJAX pour interagir avec PHP
-    function testajax (){
+    function ajax (){
     var xhr = new XMLHttpRequest();
-    var mx = encodeURIComponent(mouseX/100);
-    var my = encodeURIComponent(mouseY/100 );
-    xhr.open("POST", "Jeu.php");
+    var mx = (mouseX/100);
+    var my = (mouseY/100 );
+
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
 
         if (xhr.readyState == 4 && xhr.status == 200) { // Si le fichier est chargé sans erreur
-            alert ('haha'+mx+my);
+           var json_resp = eval('('+xhr.responseText+')');
+           alert (json_resp);
         }
 
     };
-    xhr.send("mx="+mx+"my="+my);
+        xhr.open("Get", "ajax.php?mx="+mx+"&my="+my, true);
+    xhr.send(null);
     }
     
 }   

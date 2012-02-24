@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -49,53 +49,61 @@ class Pawn extends Piece
 
     public function check($from,$to) 
     {
-        $chessboard = ChessBoard::get_instance();
-        if (($chessboard->correspondance[$to[0]] >= 0) && ($chessboard->correspondance[$to[0]] < 8) && ($to[1] >= 0) && ($to[1] < 8))
+        
+        $chessboard = $_SESSION["chessboard"];
+        $cpt = 0;
+        $array = array (0);
+        if ($this->first == 0)
         {
-            if ($this->first == 0)
+            if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard[$to+1][$from-1] != "-")
             {
-                $this->first++;
-                if ((($to[1] == ($this->pos_y + 2)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 2][$this->pos_x]->type == "-"))
-                {
-                return true;
-                }
-                elseif ((($to[1] == ($this->pos_y + 1)) && ($chessboard->correspondance[$to[0]] == $this->pos_x)) && ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-"))
-                    return true;
-                elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
-                                                            (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
-                {
-                    if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
-                    {
-                        return true;
-                    }
-                    else
-                        return false;
-
-                }
+               $array[$cpt] = $from - 1;
+                $array[$cpt] = $to + 1;
+                $cpt++;
             }
-            else
+            if (((($to+1) < 8) && ($from < 8)) &&$chessboard[$to+1][$from] == "-")
             {
-                if (($to[1] == ($this->pos_y + 1) && ($chessboard->correspondance[$to[0]] == $this->pos_x))&& ($chessboard->board[$this->pos_y + 1][$this->pos_x]->type == "-") ) 
-                {
-                    return true;
-                }
-                elseif (($to[1] == ($this->pos_y + 1) && (($chessboard->correspondance[$to[0]] == $this->pos_x + 1) ||
-                                                            (($chessboard->correspondance[$to[0]] == $this->pos_x - 1)) ))) 
-                {
-                    if (($chessboard->board[$this->pos_y + 1][$this->pos_x + 1]->type != "-") || ($chessboard->board[$this->pos_y + 1][$this->pos_x - 1]->type != "-"))
-                    {
-                        return true;
-                    }
-                    else
-                        return false;
-                }
-
+                $array[$cpt] = $from;
+                $array[$cpt] = $to + 1;
+                $cpt++;
             }
+            if (((($to+1) < 8) && ($to+2 < 8) && ($from < 8)) &&$chessboard[$to+2][$from] == "-")
+            {
+                $array[$cpt] = $from;
+                $array[$cpt] = $to + 2;
+                $cpt++;
+            }
+            if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard[$to+1][$from + 1] != "-" )
+            {
+                $array[$cpt] = $from + 1;
+                $array[$cpt] = $to + 1;
+                $cpt++;
+            }
+            
         }
         else
-        {
-            return false;
-        }
+            {
+                if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard[$to+1][$from-1] != "-")
+                {
+                $array[$cpt] = $from - 1;
+                    $array[$cpt] = $to + 1;
+                    $cpt++;
+                }
+                if (((($to+1) < 8) && ($from< 8)) &&$chessboard[$to+1][$from] == "-")
+                {
+                    $array[$cpt] = $from;
+                    $array[$cpt] = $to + 1;
+                    $cpt++;
+                }
+                if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard[$to+1][$from + 1] != "-" )
+                {
+                    $array[$cpt] = $from + 1;
+                    $array[$cpt] = $to + 1;
+                    $cpt++;
+                }
+            }
+            
+            return ($array);
     }
 }
 
