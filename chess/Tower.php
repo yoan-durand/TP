@@ -52,72 +52,49 @@ class Tower extends Piece
 
     public function check($from,$to)         
     {
-        $chessboard = ChessBoard::get_instance();
-       
-        if (($chessboard->correspondance[$to[0]] >= 0)&& ($chessboard->correspondance[$to[0]] < 8) && ($to[1] >= 0) && ($to[1] < 8))
+        $board = $_SESSION["chessboard"];
+        $cpt = 0;
+        $px = $from;
+        $py = $to;
+        $tabres;
+        
+        while (($py < 8) && ($board->board[$py][$px]->type == "-"))
         {
-            if (($to[0] == $from[0]) && ($to[1] != $from[1]))
-            {
-                $p = $this->pos_x;
-                if ($to[1] > $from[1])
-                {
-                    while ($chessboard[$p][$chessboard->correspondance[$from[0]]]->type == "-" && ($p < $to[1]))
-                    {
-                        $p++;
-                    }
-                    if ($p == $to[1])
-                    {
-                        return true;
-                    }
-                    else 
-                        return FALSE;
-                }
-                else
-                {
-                    while ($chessboard[$p][$chessboard->correspondance[$from[0]]]->type == "-" && ($p > $to[1]))
-                    {
-                        $p--;
-                    }
-                    if ($p == $to[1])
-                    {
-                        return true;
-                    }
-                    else 
-                        return FALSE;
-                }
-            }
-            elseif (($chessboard->correspondance[$to[0]] != $chessboard->correspondance[$from[0]]) && ($to[1] == $from[1]))
-            {
-                $p = $this->pos_x;
-                if ($chessboard->correspondance[$to[0]] > $chessboard->correspondance[$from[0]])
-                {
-                    while ($chessboard[$to[1]][$p]->type == "-" && ($p < $chessboard->correspondance[$to[0]]))
-                    {
-                        $p++;
-                    }
-                    if ($p == $to[1])
-                    {
-                        return true;
-                    }
-                    else 
-                        return FALSE;
-                }
-                else
-                {
-                    while ($chessboard[$to[1]][$p]->type == "-" && ($p > $chessboard->correspondance[$to[0]]))
-                    {
-                        $p++;
-                    }
-                    if ($p == $to[1])
-                    {
-                        return true;
-                    }
-                    else 
-                        return FALSE;
-                }
-            }
-            else
-                return false;
+            $py++;
+            $tabres[$cpt] = $from;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+            
+        }
+        $py = $to;
+        while (($py >= 0) && ($board->board[$py][$px]->type == "-"))
+        {
+            $py--;
+            $tabres[$cpt] = $from;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+            
+        }
+        
+        while (($px < 8) && ($board->board[$py][$px]->type == "-"))
+        {
+            $px++;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $to;
+            $cpt++;
+            
+        }
+        $px = $from;
+        while (($px >= 0) && ($board->board[$py][$px]->type == "-"))
+        {
+            $px--;
+            $tabres[$cpt] = $x;
+            $cpt++;
+            $tabres[$cpt] = $to;
+            $cpt++;
         }
     }
     

@@ -148,7 +148,7 @@ window.onload = function ()
             ajax ();
        } 
     document.onclick = clic;
-    
+   
    var qw = new Image ();
         qw.onload = function()
         {
@@ -156,32 +156,57 @@ window.onload = function ()
             
         }
         qw.src = '../image/wQ.png';
-        
-       var tw = new Image ();
-       
-       tw.onload = function ()
+        var imtab = new array(qw); 
+
+       var tw1 = new Image ();   
+       tw1.onload = function ()
        {
-           context.drawImage(tw, 0, 0, 100, 100);
-           context.drawImage(tw, 700, 0, 100, 100);
+           context.drawImage(tw1, 0, 0, 100, 100);
        }
-        tw.src = '../image/wT.png';
-        
+        tw1.src = '../image/wT.png';
+        imtab.push(tw1);
+       var tw1 = new Image ();
+       
+       tw2.onload = function ()
+       {
+          context.drawImage(tw2, 700, 0, 100, 100);
+       }
+        tw2.src = '../image/wT.png';  
+        imtab.push(tw2);           
+
         var nw =  new Image ();
-        
-       nw.onload = function () 
+        nw.onload = function () 
        {
            context.drawImage(nw, 100, 0, 100, 100);
-           context.drawImage(nw, 600, 0, 100, 100);
        }
        nw.src = '../image/wN.png';
 
+       imtab.push(nw);
+       
+        var nw1 =  new Image ();
+        nw1.onload = function () 
+       {
+           context.drawImage(nw1, 600, 0, 100, 100);
+       }
+       nw1.src = '../image/wN.png';
+
+       imtab.push(nw1);
+       
        var bw = new Image ();
        bw.onload = function ()
        {
 			context.drawImage(bw, 200, 0, 100, 100);
-                        context.drawImage(bw, 500, 0, 100, 100);
        }
 	   bw.src = '../image/wB.png';
+       
+       var bw1 = new Image ();
+       bw.onload = function ()
+       {
+                        context.drawImage(bw1, 500, 0, 100, 100);
+       }
+	   bw1.src = '../image/wB.png';
+       
+       
        
 	  var kw = new Image ();
 	  kw.onload = function ()
@@ -193,12 +218,62 @@ window.onload = function ()
     var pw = new Image ();
     pw.onload = function ()
     {
-        for (var k = 0; k < 8; k++)
-            {
-                context.drawImage(pw, k * 100, 100, 100, 100);
-            }
+        context.drawImage(pw, 0, 100, 100, 100);
     }
     pw.src = '../image/wP.png';
+   
+    var pw1 = new Image ();
+    pw.onload = function ()
+    {
+        context.drawImage(pw1, 100, 100, 100, 100);
+    }
+    pw1.src = '../image/wP.png';
+    
+    var pw2 = new Image ();
+    pw2.onload = function ()
+    {
+        context.drawImage(pw2, 200, 100, 100, 100);
+    }
+    pw2.src = '../image/wP.png';
+    
+    var pw3 = new Image ();
+    pw3.onload = function ()
+    {
+        context.drawImage(pw3, 300, 100, 100, 100);
+    }
+    pw3.src = '../image/wP.png';
+    
+    var pw4 = new Image ();
+    pw4.onload = function ()
+    {
+        context.drawImage(pw4, 400, 100, 100, 100);
+    }
+    pw4.src = '../image/wP.png';
+    
+    var pw5 = new Image ();
+    pw5.onload = function ()
+    {
+        context.drawImage(pw5, 500, 100, 100, 100);
+    }
+    pw5.src = '../image/wP.png';
+    
+    var pw6 = new Image ();
+    pw6.onload = function ()
+    {
+        context.drawImage(pw6, 600, 100, 100, 100);
+    }
+    pw6.src = '../image/wP.png';
+   
+   var pw7 = new Image ();
+    pw7.onload = function ()
+    {
+        context.drawImage(pw7, 700, 100, 100, 100);
+    }
+    pw7.src = '../image/wP.png';
+   
+   
+   
+   
    
    var qb = new Image ();
         qb.onload = function()
@@ -207,7 +282,8 @@ window.onload = function ()
             
         }
         qb.src = '../image/bQ.png';
-        
+       
+       
        var tb = new Image ();
        
        tb.onload = function ()
@@ -216,24 +292,47 @@ window.onload = function ()
            context.drawImage(tb, 700, 700, 100, 100);
        }
         tb.src = '../image/bT.png';
+       
+       var tb1 = new Image ();
+       tb1.onload = function ()
+       {
+           context.drawImage(tb1, 700, 700, 100, 100);
+       }
+        tb1.src = '../image/bT.png';
         
+       
         var nb =  new Image ();
         
        nb.onload = function () 
        {
            context.drawImage(nb, 100, 700, 100, 100);
-           context.drawImage(nb, 600, 700, 100, 100);
        }
        nb.src = '../image/bN.png';
+
+
+        var nb1 =  new Image ();
+        
+       nb1.onload = function () 
+       {
+           context.drawImage(nb1, 600, 700, 100, 100);
+       }
+       nb1.src = '../image/bN.png';
 
        var bb = new Image ();
        bb.onload = function ()
        {
 			context.drawImage(bb, 200, 700, 100, 100);
-                        context.drawImage(bb, 500, 700, 100, 100);
        }
 	   bb.src = '../image/bB.png';
-       
+
+       var bb1 = new Image ();
+       bb1.onload = function ()
+       {
+                        context.drawImage(bb1, 500, 700, 100, 100);
+       }
+	   bb1.src = '../image/bB.png';
+
+
 	  var kb = new Image ();
 	  kw.onload = function ()
 		{
@@ -244,12 +343,67 @@ window.onload = function ()
     var pb = new Image ();
     pb.onload = function ()
     {
-        for (var k = 0; k < 8; k++)
-            {
-                context.drawImage(pb, k * 100, 600, 100, 100);
-            }
+         context.drawImage(pb, 0, 600, 100, 100);
     }
     pb.src = '../image/nP.png';
+
+
+    var pb1 = new Image ();
+    pb1.onload = function ()
+    {
+         context.drawImage(pb1, 100, 600, 100, 100);
+    }
+    pb1.src = '../image/nP.png';
+
+
+    var pb2 = new Image ();
+    pb2.onload = function ()
+    {
+         context.drawImage(pb2, 200, 600, 100, 100);
+    }
+    pb2.src = '../image/nP.png';
+
+
+    var pb3 = new Image ();
+    pb3.onload = function ()
+    {
+         context.drawImage(pb3, 300, 600, 100, 100);
+    }
+    pb3.src = '../image/nP.png';
+
+
+    var pb4 = new Image ();
+    pb4.onload = function ()
+    {
+         context.drawImage(pb4, 400, 600, 100, 100);
+    }
+    pb.src = '../image/nP.png';
+
+
+    var pb5 = new Image ();
+    pb5.onload = function ()
+    {
+         context.drawImage(pb5, 500, 600, 100, 100);
+    }
+    pb5.src = '../image/nP.png';
+
+
+    var pb6 = new Image ();
+    pb6.onload = function ()
+    {
+         context.drawImage(pb6, 600, 600, 100, 100);
+    }
+    pb6.src = '../image/nP.png';
+
+
+    var pb7 = new Image ();
+    pb7.onload = function ()
+    {
+         context.drawImage(pb7, 700, 600, 100, 100);
+    }
+    pb7.src = '../image/nP.png';
+
+    imtab.push(bw, bw1, kw, pw, pw1, pw2,pw3,pw4,pw5,pw6,pw7,qb,kb,tb,tb1,nb,nb1,bb,bb1,pb,pb1,pb2,pb3,pb4,pb5,pb6,pb7);
     
     ///Code AJAX pour interagir avec PHP
     function ajax (){
@@ -279,10 +433,15 @@ window.onload = function ()
             {
                 if (i % 2 == 0)
                     {
-                        context.fillStyle= "rgba(0,0,255,0.5)";
+                        context.fillStyle= "rgba(255,0,255,0.5)";
                         context.fillRect(tablo[i]*100, tablo[i+1]*100, 100, 100);
                     }
             }
-    }
-}   
+    }   
+
+
+
+
+}
+   
 
