@@ -56,7 +56,7 @@ class Tower extends Piece
         $cpt = 0;
         $px = $from;
         $py = $to;
-        $tabres;
+        $tabres = array(0);
         
         while (($py < 8) && ($board->board[$py][$px]->type == "-"))
         {

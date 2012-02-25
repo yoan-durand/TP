@@ -59,7 +59,7 @@ class Bishop extends Piece
         $py = $to;
         $cpt = 0;
         
-        $tabres;
+        $tabres = array(0);
         
         while (($px < 8)&&($py < 8) && ($chess->board[$py][$px]->type == "-"))
         {

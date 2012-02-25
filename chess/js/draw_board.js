@@ -142,21 +142,22 @@ window.onload = function ()
                 }
                 ancientX = mouseX;
                 ancientY = mouseY;
-            context.fillStyle= "rgba(0, 0, 255, 0.5)";
+            context.fillStyle= "rgba(255, 0, 255, 0.5)";
             context.fillRect(mouseX, mouseY, 100, 100);
             select = true;
+            alert ('avant ajax');
             ajax ();
        } 
     document.onclick = clic;
    
-   var qw = new Image ();
+        var qw = new Image ();
         qw.onload = function()
         {
             context.drawImage(qw, 300, 0, 100, 100);
             
         }
         qw.src = '../image/wQ.png';
-        var imtab = new array(qw); 
+       
 
        var tw1 = new Image ();   
        tw1.onload = function ()
@@ -164,15 +165,15 @@ window.onload = function ()
            context.drawImage(tw1, 0, 0, 100, 100);
        }
         tw1.src = '../image/wT.png';
-        imtab.push(tw1);
-       var tw1 = new Image ();
-       
+   
+        
+       var tw2 = new Image ();
        tw2.onload = function ()
        {
           context.drawImage(tw2, 700, 0, 100, 100);
        }
         tw2.src = '../image/wT.png';  
-        imtab.push(tw2);           
+                   
 
         var nw =  new Image ();
         nw.onload = function () 
@@ -181,7 +182,7 @@ window.onload = function ()
        }
        nw.src = '../image/wN.png';
 
-       imtab.push(nw);
+       
        
         var nw1 =  new Image ();
         nw1.onload = function () 
@@ -190,7 +191,7 @@ window.onload = function ()
        }
        nw1.src = '../image/wN.png';
 
-       imtab.push(nw1);
+ 
        
        var bw = new Image ();
        bw.onload = function ()
@@ -200,7 +201,7 @@ window.onload = function ()
 	   bw.src = '../image/wB.png';
        
        var bw1 = new Image ();
-       bw.onload = function ()
+       bw1.onload = function ()
        {
                         context.drawImage(bw1, 500, 0, 100, 100);
        }
@@ -208,12 +209,12 @@ window.onload = function ()
        
        
        
-	  var kw = new Image ();
-	  kw.onload = function ()
-		{
-			context.drawImage (kw, 400, 0, 100, 100);
-		}
-	  kw.src = '../image/wK.png';
+        var kw = new Image ();
+        kw.onload = function ()
+            {
+                    context.drawImage (kw, 400, 0, 100, 100);
+            }
+        kw.src = '../image/wK.png';
     
     var pw = new Image ();
     pw.onload = function ()
@@ -223,7 +224,7 @@ window.onload = function ()
     pw.src = '../image/wP.png';
    
     var pw1 = new Image ();
-    pw.onload = function ()
+    pw1.onload = function ()
     {
         context.drawImage(pw1, 100, 100, 100, 100);
     }
@@ -289,7 +290,6 @@ window.onload = function ()
        tb.onload = function ()
        {
            context.drawImage(tb, 0, 700, 100, 100);
-           context.drawImage(tb, 700, 700, 100, 100);
        }
         tb.src = '../image/bT.png';
        
@@ -377,7 +377,7 @@ window.onload = function ()
     {
          context.drawImage(pb4, 400, 600, 100, 100);
     }
-    pb.src = '../image/nP.png';
+    pb4.src = '../image/nP.png';
 
 
     var pb5 = new Image ();
@@ -403,19 +403,15 @@ window.onload = function ()
     }
     pb7.src = '../image/nP.png';
 
-    imtab.push(bw, bw1, kw, pw, pw1, pw2,pw3,pw4,pw5,pw6,pw7,qb,kb,tb,tb1,nb,nb1,bb,bb1,pb,pb1,pb2,pb3,pb4,pb5,pb6,pb7);
-    
     ///Code AJAX pour interagir avec PHP
     function ajax (){
     var xhr = new XMLHttpRequest();
     var mx = (mouseX/100);
     var my = (mouseY/100 );
-    
+    alert ('function ajax');
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
         if (xhr.readyState == 4 && xhr.status == 200) {
-           alert (xhr.responseText);
             var json = eval('('+xhr.responseText+')');
-            alert (json);
             colorcase(json);
         }
 
