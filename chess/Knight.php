@@ -55,7 +55,117 @@ class Knight extends Piece
 
     public function check($from, $to) 
     {
-    
+        $board = $_SESSION["chessboard"];
+        $cpt = 0;
+        $px = $from;
+        $py = $to;
+        $tabres = array(0);
+        
+        if (($px + 1 < 8) && ($py + 2 < 8))
+        {
+            $px++;
+            $py += 2;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        if (($px - 1 >= 0) && ($py + 2 < 8))
+        {
+            $px--;
+            $py += 2;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+            
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        if (($px - 2 >= 0) && ($py + 1 >= 0))
+        {
+            $px -= 2;
+            $py++;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        if (($px - 2 >= 0) && ($py - 1 >= 0))
+        {
+            $px -= 2;
+            $py--;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        
+        
+        $px = $from;
+        $py = $to;
+        
+        if (($px + 1 < 8) && ($py - 2 >= 0))
+        {
+            $px++;
+            $py -= 2;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        if (($px - 1 >= 0) && ($py - 2 >= 0))
+        {
+            $px--;
+            $py -= 2;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        if (($px + 2 < 8) && ($py - 1 >= 0))
+        {
+            $px += 2;
+            $py--;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        if (($px + 2 < 8) && ($py + 1 < 8))
+        {
+            $px += 2;
+            $py++;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        return $tabres;
     }
 }
 

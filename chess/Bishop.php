@@ -53,70 +53,65 @@ class Bishop extends Piece
 
     public function check($from,$to) 
     {
-        $chessboard = ChessBoard::get_instance();
-       
-        if (($chessboard->correspondance[$to[0]] >= 0)&& ($chessboard->correspondance[$to[0]] < 8) && ($to[1] >= 0) && ($to[1] < 8))
+        $chess= $_SESSION["chessboard"];
+        
+        $px = $from;
+        $py = $to;
+        $cpt = 0;
+        
+        $tabres;
+        
+        while (($px < 8)&&($py < 8) && ($chess->board[$py][$px]->type == "-"))
         {
-            $p1 = $chessboard->correspondance[$from[0]];
-            $p2 = $from[1];
-            if ((($chessboard->correspondance[$to[0]] > $chessboard->correspondance[$from[0]]) && ($to[1] > $from[1])))
-            {  
-               while (($chessboard[$p2][$p1]->type == "-") && (($p1 < $chessboard->correspondance[$to[0]]) && ($p2 < $to[1])) )
-               {
-                   $p1++;
-                   $p2++;
-               }
-               if (($p1 == $chessboard->correspondance[$to[0]])&&($p2 == $to[1]))
-               {
-                  return true; 
-               }
-               else
-                   return false;
-            }
-            elseif ((($chessboard->correspondance[$to[0]] > $chessboard->correspondance[$from[0]]) && ($to[1] < $from[1])))
-            {
-               while (($chessboard[$p2][$p1]->type == "-") && (($p1 < $chessboard->correspondance[$to[0]]) && ($p2 > $to[1])) )
-               {
-                   $p1++;
-                   $p2--;
-               }
-               if (($p1 == $chessboard->correspondance[$to[0]])&&($p2 == $to[1]))
-               {
-                  return true; 
-               }
-               else
-                   return false; 
-            }
-            elseif ((($chessboard->correspondance[$to[0]] < $chessboard->correspondance[$from[0]]) && ($to[1] > $from[1])))
-            {
-               while (($chessboard[$p2][$p1]->type == "-") && (($p1 > $chessboard->correspondance[$to[0]]) && ($p2 < $to[1])) )
-               {
-                   $p1--;
-                   $p2++;
-               }
-               if (($p1 == $chessboard->correspondance[$to[0]])&&($p2 == $to[1]))
-               {
-                  return true; 
-               }
-               else
-                   return false;
-            }elseif ((($chessboard->correspondance[$to[0]] < $chessboard->correspondance[$from[0]]) && ($to[1] < $from[1])))
-            {
-               while (($chessboard[$p2][$p1]->type == "-") && (($p1 > $chessboard->correspondance[$to[0]]) && ($p2 > $to[1])) )
-               {
-                   $p1--;
-                   $p2--;
-               }
-               if (($p1 == $chessboard->correspondance[$to[0]])&&($p2 == $to[1]))
-               {
-                  return true; 
-               }
-               else
-                   return false;
-            }
-            else
-                return FALSE;
+            $px++;
+            $py++;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
         }
+        
+        $px = $from;
+        $py = $to;
+        
+        while (($px >= 0)&&($py < 8) && ($chess->board[$py][$px]->type == "-"))
+        {
+            $px--;
+            $py++;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        while (($px >= 0)&&($py >= 0) && ($chess->board[$py][$px]->type == "-"))
+        {
+            $px--;
+            $py--;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+        
+        $px = $from;
+        $py = $to;
+        
+        while (($px < 8)&&($py >= 0) && ($chess->board[$py][$px]->type == "-"))
+        {
+            $px++;
+            $py--;
+            $tabres[$cpt] = $px;
+            $cpt++;
+            $tabres[$cpt] = $py;
+            $cpt++;
+        }
+       
+        return $tabres;
+        
     }
 }
 

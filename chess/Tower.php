@@ -96,7 +96,10 @@ class Tower extends Piece
             $tabres[$cpt] = $to;
             $cpt++;
         }
+        return $tabres;
     }
+    
+    
     
 }
 
