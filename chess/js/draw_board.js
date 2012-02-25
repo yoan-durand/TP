@@ -145,7 +145,6 @@ window.onload = function ()
             context.fillStyle= "rgba(255, 0, 255, 0.5)";
             context.fillRect(mouseX, mouseY, 100, 100);
             select = true;
-            alert ('avant ajax');
             ajax ();
        } 
     document.onclick = clic;
@@ -408,7 +407,6 @@ window.onload = function ()
     var xhr = new XMLHttpRequest();
     var mx = (mouseX/100);
     var my = (mouseY/100 );
-    alert ('function ajax');
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
         if (xhr.readyState == 4 && xhr.status == 200) {
             var json = eval('('+xhr.responseText+')');
