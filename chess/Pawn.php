@@ -36,15 +36,7 @@ class Pawn extends Piece
         $this->$name = $value;
     }
     
-    public function move($from, $to) 
-    {
-        $chessboard = ChessBoard::get_instance();
-        unset($chessboard->board[$chessboard->correspondance[$to[0]][$to[1]]]);
-        $chessboard->board[$chessboard->correspondance[$to[0]][$to[1]]] = new Pawn($chessboard->correspondance[$to[0]], $to[1], $chessboard->board[$chessboard->correspondance[$from[0]][$from[1]]]->color , TRUE);
-        unset($chessboard->board[$chessboard->correspondance[$from[0]][$from[1]]]);
-        $chessboard->board[$chessboard->correspondance[$from[0]][$from[1]]] = new None($chessboard->correspondance[$from[0]], $from[1], "", FALSE);
-        
-    }
+    
     
     public function eat ()
     {
@@ -65,66 +57,146 @@ class Pawn extends Piece
         $chessboard = $_SESSION["chessboard"];
         $cpt = 0;
         $array = array (0);
-        
-        if ($this->first == 0)
+        if ($_SESSION["player"] % 2 == 0)
         {
-            $this->first++;
-            if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard->board[$to+1][$from-1]->type != "-")
+            if ($this->first == 0 )
             {
-               $array[$cpt] = $from - 1;
-               $cpt++;
-                $array[$cpt] = $to + 1;
-                $cpt++;
-            }
-            if (((($to+1) < 8) && ($from < 8)) &&$chessboard->board[$to+1][$from]->type == "-")
-            {
-                $array[$cpt] = $from;
-                $cpt++;
-                $array[$cpt] = $to + 1;
-                $cpt++;
-            }
-            if (((($to+1) < 8) && ($to+2 < 8) && ($from < 8)) &&$chessboard->board[$to+2][$from]->type == "-")
-            {
-                $array[$cpt] = $from;
-                $cpt++;
-                $array[$cpt] = $to + 2;
-                $cpt++;
-            }
-            if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard->board[$to+1][$from + 1]->type != "-" )
-            {
-                $array[$cpt] = $from + 1;
-                $cpt++;
-                $array[$cpt] = $to + 1;
-                $cpt++;
-            }
-            
-        }
-        else
-            {
-                if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard->board[$to+1][$from-1]->type != "-")
+                $this->first++;
+                if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard->board[$to+1][$from-1]->type != "-" && ($chessboard[$to + 1][$from - 1]->color != $chessboard[$to][$from]->color))
                 {
-                    $array[$cpt] = $from - 1;
-                    $cpt++;
+                $array[$cpt] = $from - 1;
+                $cpt++;
                     $array[$cpt] = $to + 1;
                     $cpt++;
                 }
-                if (((($to+1) < 8) && ($from< 8)) &&$chessboard->board[$to+1][$from]->type == "-")
+                if (((($to+1) < 8) && ($from < 8)) &&$chessboard->board[$to+1][$from]->type == "-")
                 {
                     $array[$cpt] = $from;
                     $cpt++;
                     $array[$cpt] = $to + 1;
                     $cpt++;
                 }
-                if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard->board[$to+1][$from + 1]->type != "-" )
+                if (((($to+1) < 8) && ($to+2 < 8) && ($from < 8)) &&$chessboard->board[$to+2][$from]->type == "-")
+                {
+                    $array[$cpt] = $from;
+                    $cpt++;
+                    $array[$cpt] = $to + 2;
+                    $cpt++;
+                }
+                if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard->board[$to+1][$from + 1]->type != "-" && ($chessboard[$to + 1][$from + 1]->color != $chessboard[$to][$from]->color))
                 {
                     $array[$cpt] = $from + 1;
                     $cpt++;
                     $array[$cpt] = $to + 1;
                     $cpt++;
                 }
+
             }
-            
-            return ($array);
+            else
+                {
+                    if (((($to+1) < 8) && ($from - 1 >= 0)) && $chessboard->board[$to+1][$from-1]->type != "-" && ($chessboard[$to + 1][$from - 1]->color != $chessboard[$to][$from]->color))
+                    {
+                        $array[$cpt] = $from - 1;
+                        $cpt++;
+                        $array[$cpt] = $to + 1;
+                        $cpt++;
+                    }
+                    if (((($to+1) < 8) && ($from< 8)) &&$chessboard->board[$to+1][$from]->type == "-")
+                    {
+                        $array[$cpt] = $from;
+                        $cpt++;
+                        $array[$cpt] = $to + 1;
+                        $cpt++;
+                    }
+                    if (((($to+1) < 8) && ($from + 1 < 8)) && $chessboard->board[$to+1][$from + 1]->type != "-" && ($chessboard[$to + 1][$from + 1]->color != $chessboard[$to][$from]->color))
+                    {
+                        $array[$cpt] = $from + 1;
+                        $cpt++;
+                        $array[$cpt] = $to + 1;
+                        $cpt++;
+                    }
+                }
+
+                return ($array);
+        }
+        else
+        {
+            if ($this->first == 0 )
+            {
+                $this->first++;
+                if (((($to-1) >= 0) && ($from - 1 >= 0)) && $chessboard->board[$to-1][$from-1]->type != "-" && ($chessboard[$to - 1][$from - 1]->color != $chessboard[$to][$from]->color))
+                {
+                $array[$cpt] = $from - 1;
+                $cpt++;
+                    $array[$cpt] = $to - 1;
+                    $cpt++;
+                }
+                if (((($to-1) >= 0) && ($from < 8)) &&$chessboard->board[$to-1][$from]->type == "-")
+                {
+                    $array[$cpt] = $from;
+                    $cpt++;
+                    $array[$cpt] = $to - 1;
+                    $cpt++;
+                }
+                if (((($to-1) >= 0) && ($to-2 >= 0) && ($from < 8)) &&$chessboard->board[$to-2][$from]->type == "-")
+                {
+                    $array[$cpt] = $from;
+                    $cpt++;
+                    $array[$cpt] = $to - 2;
+                    $cpt++;
+                }
+                if (((($to-1) >= 0) && ($from + 1 < 8)) && $chessboard->board[$to - 1][$from + 1]->type != "-" && ($chessboard[$to - 1][$from + 1]->color != $chessboard[$to][$from]->color))
+                {
+                    $array[$cpt] = $from + 1;
+                    $cpt++;
+                    $array[$cpt] = $to - 1;
+                    $cpt++;
+                }
+
+            }
+            else
+                {
+                   if (((($to-1) >= 0) && ($from - 1 >= 0)) && $chessboard->board[$to-1][$from-1]->type != "-" && ($chessboard[$to - 1][$from - 1]->color != $chessboard[$to][$from]->color))
+                    {
+                        $array[$cpt] = $from - 1;
+                        $cpt++;
+                        $array[$cpt] = $to - 1;
+                        $cpt++;
+                    }
+                    if (((($to-1) >= 0) && ($from < 8)) &&$chessboard->board[$to-1][$from]->type == "-")
+                    {
+                        $array[$cpt] = $from;
+                        $cpt++;
+                        $array[$cpt] = $to - 1;
+                        $cpt++;
+                    }
+                    if (((($to-1) >= 0) && ($from + 1 < 8)) && $chessboard->board[$to - 1][$from + 1]->type != "-" && ($chessboard[$to - 1][$from + 1]->color != $chessboard[$to][$from]->color))
+                    {
+                        $array[$cpt] = $from + 1;
+                        $cpt++;
+                        $array[$cpt] = $to - 1;
+                        $cpt++;
+                    }
+                }
+
+                return ($array);
+        }
+    }
+
+    public function move($fromx, $fromy, $tox, $toy) 
+    {
+        $chess = $_SESSION["chessboard"];
+        $tab = array (0);
+        $board = $chess->board;
+        $board[$toy][$tox] = $chess->board[$fromy][$fromx];
+        $board[$fromy][$fromx] = new None($fromy, $fromx, "", FALSE);
+        
+        $tab[0]=$tox;
+        $tab[1]=$toy;
+        $tab[2]=$board[$toy][$tox]->type;
+        $chess->board = $board;
+        $_SESSION["chessboard"] = $chess;
+        return $tab;
     }
 }
 

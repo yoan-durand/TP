@@ -18,7 +18,7 @@
      * Color move change the color of the board when a piece is selected
      * eat take a piece from the opponent
      */
-    abstract public function move ($from, $to);
+    abstract public function move ($fromx, $fromy, $tox, $toy);
     abstract public function check ($from,$to);
     abstract public function eat ();
     

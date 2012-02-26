@@ -33,11 +33,7 @@ class None extends Piece
         $this->$name = $value;
     }
     
-    public function move($from, $to) 
-    {
-        $from = 0;
-        $to = 0;
-    }
+    
     
     public function eat ()
     {
@@ -50,6 +46,10 @@ class None extends Piece
     }
 
     public function check($from, $to) {
+        
+    }
+
+    public function move($fromx, $fromy, $tox, $toy) {
         
     }
 }

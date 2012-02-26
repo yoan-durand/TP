@@ -33,10 +33,7 @@ class Knight extends Piece
         $this->$name = $value;
     }
     
-    public function move($from, $to) 
-    {
-        
-    }
+    
     
     public function eat ()
     {
@@ -61,8 +58,8 @@ class Knight extends Piece
         $py = $to;
         $tabres = array(0);
         
-        if (($px + 1 < 8) && ($py + 2 < 8))
-        {
+        if (($px + 1 < 8) && ($py + 2 < 8) && (($board->board[$py + 2][$px + 1]->type == "-") || ($board->board[$py + 2][$px + 1]->color != $board->board[$to][$from]->color)))
+        {   
             $px++;
             $py += 2;
             $tabres[$cpt] = $px;
@@ -74,7 +71,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px - 1 >= 0) && ($py + 2 < 8))
+        if (($px - 1 >= 0) && ($py + 2 < 8) && (($board->board[$py + 2][$px - 1]->type == "-") || ($board->board[$py + 2][$px - 1]->color != $board->board[$to][$from]->color)))
         {
             $px--;
             $py += 2;
@@ -88,7 +85,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px - 2 >= 0) && ($py + 1 >= 0))
+        if (($px - 2 >= 0) && ($py + 1 >= 0) && (($board->board[$py + 1][$px - 2]->type == "-") || ($board->board[$py + 1][$px - 2]->color != $board->board[$to][$from]->color)))
         {
             $px -= 2;
             $py++;
@@ -101,7 +98,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px - 2 >= 0) && ($py - 1 >= 0))
+        if (($px - 2 >= 0) && ($py - 1 >= 0) && (($board->board[$py - 1][$px - 2]->type == "-") || ($board->board[$py - 1][$px - 2]->color != $board->board[$to][$from]->color)))
         {
             $px -= 2;
             $py--;
@@ -116,7 +113,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px + 1 < 8) && ($py - 2 >= 0))
+        if (($px + 1 < 8) && ($py - 2 >= 0) && (($board->board[$py - 2][$px + 1]->type == "-") || ($board->board[$py - 2][$px + 1]->color != $board->board[$to][$from]->color)))
         {
             $px++;
             $py -= 2;
@@ -129,7 +126,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px - 1 >= 0) && ($py - 2 >= 0))
+        if (($px - 1 >= 0) && ($py - 2 >= 0) && (($board->board[$py - 2][$px - 1]->type == "-") || ($board->board[$py - 2][$px - 1]->color != $board->board[$to][$from]->color)))
         {
             $px--;
             $py -= 2;
@@ -142,7 +139,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px + 2 < 8) && ($py - 1 >= 0))
+        if (($px + 2 < 8) && ($py - 1 >= 0) && (($board->board[$py - 1][$px + 2]->type == "-") || ($board->board[$py - 1][$px + 2]->color != $board->board[$to][$from]->color)))
         {
             $px += 2;
             $py--;
@@ -155,7 +152,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px + 2 < 8) && ($py + 1 < 8))
+        if (($px + 2 < 8) && ($py + 1 < 8) && (($board->board[$py + 1][$px + 2]->type == "-") ||($board->board[$py + 1][$px + 2]->color != $board->board[$to][$from]->color)))
         {
             $px += 2;
             $py++;
@@ -166,6 +163,10 @@ class Knight extends Piece
         }
         
         return $tabres;
+    }
+
+    public function move($fromx, $fromy, $tox, $toy) {
+        
     }
 }
 

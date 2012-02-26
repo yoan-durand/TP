@@ -33,10 +33,7 @@ class Bishop extends Piece
         $this->$name = $value;
     }
     
-    public function move($from, $to) 
-    {
-        
-    }
+    
     
     public function eat ()
     {
@@ -111,6 +108,10 @@ class Bishop extends Piece
         }
        
         return $tabres;
+        
+    }
+
+    public function move($fromx, $fromy, $tox, $toy) {
         
     }
 }

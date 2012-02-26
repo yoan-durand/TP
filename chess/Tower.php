@@ -32,10 +32,7 @@ class Tower extends Piece
     {
         $this->$name = $value;
     }
-    public function move($from, $to) 
-    {
-        
-    }
+    
     
     public function eat ()
     {
@@ -97,6 +94,10 @@ class Tower extends Piece
             $cpt++;
         }
         return $tabres;
+    }
+
+    public function move($fromx, $fromy, $tox, $toy) {
+        
     }
     
     

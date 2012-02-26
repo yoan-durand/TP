@@ -33,10 +33,7 @@ class King extends Piece
         $this->$name = $value;
     }
      
-    public function move($from, $to) 
-    {
-        
-    }
+    
     
     public function eat ()
     {
@@ -52,6 +49,10 @@ class King extends Piece
     }
 
     public function check($from, $to) {
+        
+    }
+
+    public function move($fromx, $fromy, $tox, $toy) {
         
     }
 }

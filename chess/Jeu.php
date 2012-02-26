@@ -28,6 +28,7 @@ and open the template in the editor.
             $chessboard = ChessBoard::get_instance();
            
             $_SESSION["chessboard"] = $chessboard;
+            $_SESSION["player"] = 0;
             
             $_SESSION["chessboard"];
             

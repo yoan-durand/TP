@@ -407,9 +407,12 @@ window.onload = function ()
     var xhr = new XMLHttpRequest();
     var mx = (mouseX/100);
     var my = (mouseY/100 );
+   // alert ('avant state');
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
         if (xhr.readyState == 4 && xhr.status == 200) {
+            alert (xhr.responseText);
             var json = eval('('+xhr.responseText+')');
+            //alert ('appel colorcase');
             colorcase(json);
         }
 
@@ -421,16 +424,44 @@ window.onload = function ()
     
     function colorcase(tablo)
     {
+       // alert ('colorcase');
         var i = 0;
-        
-        for (i = 0; i < tablo.length; i++)
+    if (tablo[tablo.length - 1]>= "A" && tablo[tablo.length - 1] <= "Z")
+        {
+            alert (tablo[tablo.length-1]);
+            switch (tablo[2])
             {
-                if (i % 2 == 0)
-                    {
-                        context.fillStyle= "rgba(255,0,255,0.5)";
-                        context.fillRect(tablo[i]*100, tablo[i+1]*100, 100, 100);
-                    }
+                case 'P':
+                    context.drawImage(pw, 100*tablo[0], 100*tablo[1], 100, 100);
+                    break;
+                case 'T':
+                    context.drawImage(tw1, 100 * tablo[0], 100*tablo[1], 100, 100);
+                    break;
+                case 'B':
+                    context.drawImage(bw, 100*tablo[0], 100*tablo[1], 100, 100);
+                    break;
+                case 'N':
+                    context.drawImage(nw, 100*tablo[0], 100*tablo[1], 100, 100);
+                    break;
+                case 'Q':
+                    context.drawImage(qw, 100*tablo[0], 100*tablo[1], 100, 100);
+                    break;
+                case 'K':
+                    context.drawImage(kw, 100*tablo[0], 100*tablo[1], 100, 100);
+                    break;
             }
+        }
+        else
+        {        
+            for (i = 0; i < tablo.length; i++)
+                {
+                    if (i % 2 == 0)
+                        {
+                            context.fillStyle= "rgba(255,0,255,0.5)";
+                            context.fillRect(tablo[i]*100, tablo[i+1]*100, 100, 100);
+                        }
+                }
+        }
     }   
 
 
