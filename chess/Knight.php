@@ -165,8 +165,20 @@ class Knight extends Piece
         return $tabres;
     }
 
-    public function move($fromx, $fromy, $tox, $toy) {
-        
+    public function move($fromx, $fromy, $tox, $toy) 
+        {
+            $chess = $_SESSION["chessboard"];
+            $tab = array (0);
+            $board = $chess->board;
+            $board[$toy][$tox] = $chess->board[$fromy][$fromx];
+            $board[$fromy][$fromx] = new None($fromy, $fromx, "", FALSE);
+
+            $tab[0]=$tox;
+            $tab[1]=$toy;
+            $tab[2]=$board[$toy][$tox]->type;
+            $chess->board = $board;
+            $_SESSION["chessboard"] = $chess;
+            return $tab;
     }
 }
 
