@@ -12,7 +12,7 @@
         include $class_name . '.php';
     }
     
-    print_r($_SESSION["ancient"]);
+  //  print_r($_SESSION["ancient"]);
     
     $x = $_GET["mx"];
     $y = $_GET["my"];
@@ -28,28 +28,33 @@
         if ($test->board[$y][$x]->type != "-")
         {
             $tab = $test->board[$y][$x]->check($x, $y);
-            print_r($tab);
+    //        print_r($tab);
         }
         elseif ($test->board[$y][$x]->type == "-" || $test->board[$y][$x]->color == "Black")
         {
-          echo "dans else";
+          //echo "dans else";
           // echo sizeof($_SESSION["ancient"]);
           // echo "ancient=>".$_SESSION["ancient"];
             for ($i = 0; $i < sizeof($_SESSION["ancient"]); $i++)
             {
-          echo "dans le for";
+        //  echo "dans le for";
                 if ($i % 2 == 0)
                 {
                   //  echo "ancient[i]".($_SESSION["ancient"][$i]);
-                    echo "x".$x;
+           //         echo "x".$x;
                     if ($_SESSION["ancient"][$i] == $x)
                     {
                         if ($_SESSION["ancient"][$i + 1] == $y)
                         {
-                            echo "deuxieme if";
-                            $tab = $test->board[$y][$x]->move($_SESSION["ax"], $_SESSION["ay"],$x, $y);
-                            echo "tab";
-                            print_r($tab);
+                          //  echo "deuxieme if";
+                          //  echo "x ".$x. " ";
+                          //  echo "y".$y." ";
+                          //  echo "ax".$_SESSION["ax"]." ";
+                          //  echo "ay".$_SESSION["ay"]." ";
+                          //  echo "type ".$test->board[$y][$x]->type;
+                            $tab = $test->board[$y][$x]->move($_SESSION["ax"], $_SESSION["ay"], $x, $y);
+                          //  echo "tab";
+      //                      print_r($tab);
                             $_SESSION["player"]++;
                             break;
                         }
@@ -82,7 +87,7 @@
   //                              echo "if y black";
                                 $tab = $test->board[$y][$x]->move($_SESSION["ax"], $_SESSION["ay"], $x, $y);
                                 $_SESSION["player"]++;
-                                print_r($tab);
+        //                        print_r($tab);
                                 break;
                             }
                         }

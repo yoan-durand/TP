@@ -53,6 +53,7 @@ class Pawn extends Piece
 
     public function check($from,$to) 
     {
+        
         $_SESSION["pawn"] = $this;
         $chessboard = $_SESSION["chessboard"];
         $cpt = 0;
