@@ -130,7 +130,7 @@ window.onload = function ()
             
             
         }
-            drawpiece = false;
+            drawpiece = true;
             mouseX = e.clientX ;
             mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
             while (mouseX % 100 != 0)
@@ -163,7 +163,7 @@ window.onload = function ()
        tw1.onload = function ()
        {
            context.drawImage(tw1, 0, 0, 100, 100);
-           context.drawImage(tw2, 700, 0, 100, 100);
+           context.drawImage(tw1, 700, 0, 100, 100);
        }
         tw1.src = '../image/wT.png';       
 
@@ -171,7 +171,7 @@ window.onload = function ()
         nw.onload = function () 
        {
            context.drawImage(nw, 100, 0, 100, 100);
-           context.drawImage(nw1, 600, 0, 100, 100);
+           context.drawImage(nw, 600, 0, 100, 100);
        }
        nw.src = '../image/wN.png';
     
@@ -179,7 +179,7 @@ window.onload = function ()
        bw.onload = function ()
        {
 			context.drawImage(bw, 200, 0, 100, 100);
-                        context.drawImage(bw1, 500, 0, 100, 100);
+                        context.drawImage(bw, 500, 0, 100, 100);
        }
 	   bw.src = '../image/wB.png';
         
@@ -284,34 +284,71 @@ window.onload = function ()
         {
             xtab = tablo[0];
             ytab = tablo[1];
-           
-            switch (tablo[2])
-            {
-                case 'P':
-                    context.drawImage(pw, 100*tablo[0], 100*tablo[1], 100, 100);
-                    drawpiece = false;
+           switch (tablo[3])
+           {
+               case 'White':
+                        switch (tablo[2])
+                        {
+                            case 'P':
+                                context.drawImage(pw, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'T':
+                                context.drawImage(tw1, 100 * tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'B':
+                                context.drawImage(bw, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'N':
+                                context.drawImage(nw, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'Q':
+                                context.drawImage(qw, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'K':
+                                context.drawImage(kw, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                    }
                     break;
-                case 'T':
-                    context.drawImage(tw1, 100 * tablo[0], 100*tablo[1], 100, 100);
-                    drawpiece = false;
+                    
+               case 'Black':
+                   switch (tablo[2])
+                        {
+                            case 'P':
+                                context.drawImage(pb, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'T':
+                                context.drawImage(tb1, 100 * tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'B':
+                                context.drawImage(bb, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'N':
+                                context.drawImage(nb, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'Q':
+                                context.drawImage(qb, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                            case 'K':
+                                context.drawImage(kb, 100*tablo[0], 100*tablo[1], 100, 100);
+                                drawpiece = false;
+                                break;
+                    }
                     break;
-                case 'B':
-                    context.drawImage(bw, 100*tablo[0], 100*tablo[1], 100, 100);
-                    drawpiece = false;
-                    break;
-                case 'N':
-                    context.drawImage(nw, 100*tablo[0], 100*tablo[1], 100, 100);
-                    drawpiece = false;
-                    break;
-                case 'Q':
-                    context.drawImage(qw, 100*tablo[0], 100*tablo[1], 100, 100);
-                    drawpiece = false;
-                    break;
-                case 'K':
-                    context.drawImage(kw, 100*tablo[0], 100*tablo[1], 100, 100);
-                    drawpiece = false;
-                    break;
-            }
+                   break;
+                   
+                
+           }
         }
         else
         {        

@@ -85,7 +85,7 @@ class Knight extends Piece
         $px = $from;
         $py = $to;
         
-        if (($px - 2 >= 0) && ($py + 1 >= 0) && (($board->board[$py + 1][$px - 2]->type == "-") || ($board->board[$py + 1][$px - 2]->color != $board->board[$to][$from]->color)))
+        if (($px - 2 >= 0) && ($py + 1 < 8 ) && (($board->board[$py + 1][$px - 2]->type == "-") || ($board->board[$py + 1][$px - 2]->color != $board->board[$to][$from]->color)))
         {
             $px -= 2;
             $py++;
