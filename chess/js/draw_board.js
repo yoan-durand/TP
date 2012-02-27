@@ -99,9 +99,9 @@ window.onload = function ()
             var y = ancientY / 100;
                        
             
-            if (x % 2 == 0)
+                if (x % 2 == 0)
                 {
-                    if (y % 2 == 0)
+                        if (y % 2 == 0)
                         {
                             context.fillStyle = "springgreen";
                             context.fillRect(ancientX, ancientY, 100, 100);
@@ -183,12 +183,12 @@ window.onload = function ()
        }
 	   bw.src = '../image/wB.png';
         
-        var kw = new Image ();
-        kw.onload = function ()
+        var roi = new Image ();
+        roi.onload = function ()
             {
-                    context.drawImage (kw, 400, 0, 100, 100);
+                    context.drawImage (roi, 400, 0, 100, 100);
             }
-        kw.src = '../image/wK.png';
+        roi.src = '../image/wK.png';
     
     var pw = new Image ();
     pw.onload = function ()
@@ -237,7 +237,7 @@ window.onload = function ()
 	   bb.src = '../image/bB.png';
 
         var kb = new Image ();
-	  kw.onload = function ()
+	  kb.onload = function ()
 		{
 			context.drawImage (kb, 400, 700, 100, 100);
 		}
@@ -275,15 +275,46 @@ window.onload = function ()
     xhr.send(null);
     }
     var drawpiece = true;
+    var carre = new array (0);
     
     function colorcase(tablo)
     {
        // alert ('colorcase');
+       
         var i = 0;
     if (tablo[tablo.length - 1]>= "A" && tablo[tablo.length - 1] <= "Z")
         {
-            xtab = tablo[0];
-            ytab = tablo[1];
+            alert (carre);
+           for (var l = 0; l<carre.length; l++)
+               {
+                    if (carre[l] % 2 == 0)
+                    {
+                        if (carre[l + 1] % 2 == 0)
+                        {
+                            context.fillStyle = "springgreen";
+                            context.fillRect(100*carre[l], 100*carre[l+1], 100, 100);
+                        }
+                        else
+                        {
+                            context.fillStyle = "seagreen";
+                            context.fillRect(100*carre[l], 100*carre[l+1], 100, 100);
+                        }
+
+                    }
+                    else
+                    {
+                        if (carre[l + 1] % 2 == 0)
+                        {
+                            context.fillStyle = "seagreen";
+                            context.fillRect(100* carre[l], 100*carre[l+1], 100, 100);
+                            }
+                            else
+                            {
+                            context.fillStyle = "springgreen";
+                            context.fillRect(100 * carre[l], 100*carre[l+1], 100, 100);
+                            }
+                        }
+               }
            switch (tablo[3])
            {
                case 'White':
@@ -310,7 +341,7 @@ window.onload = function ()
                                 drawpiece = false;
                                 break;
                             case 'K':
-                                context.drawImage(kw, 100*tablo[0], 100*tablo[1], 100, 100);
+                                context.drawImage(roi, 100*tablo[0], 100*tablo[1], 100, 100);
                                 drawpiece = false;
                                 break;
                     }
@@ -324,7 +355,7 @@ window.onload = function ()
                                 drawpiece = false;
                                 break;
                             case 'T':
-                                context.drawImage(tb1, 100 * tablo[0], 100*tablo[1], 100, 100);
+                                context.drawImage(tb, 100 * tablo[0], 100*tablo[1], 100, 100);
                                 drawpiece = false;
                                 break;
                             case 'B':
@@ -351,7 +382,8 @@ window.onload = function ()
            }
         }
         else
-        {        
+        {      
+            carre = tablo;
             for (i = 0; i < tablo.length; i++)
                 {
                     if (i % 2 == 0)

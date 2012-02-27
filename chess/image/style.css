@@ -6,17 +6,23 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
+body
+{
+    background-color: indigo;
 }
-
 h1
 {
-    color: blueviolet; 
+    color: blueviolet;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
-canvas
+section
 {
+    display: block;
+    width: 800;
+    height: 800;
+    margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
 }

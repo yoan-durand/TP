@@ -12,6 +12,7 @@
  */
 class Tower extends Piece 
 {
+    private $has_moved;
     public function __construct($x, $y, $color, $alive) 
     {
         $this->pos_x = $y;
@@ -19,6 +20,7 @@ class Tower extends Piece
         $this->color = $color;
         $this->alive = $alive;
         $this->type = "T";
+        $this->has_moved = FALSE;
     }
     
     //getter setter
@@ -55,43 +57,56 @@ class Tower extends Piece
         $py = $to;
         $tabres = array(0);
         
-        while (($py < 8) && ($board->board[$py][$px]->type == "-"))
+        if ($py + 1 < 8)
         {
-            $py++;
-            $tabres[$cpt] = $from;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
-            
+            while (($py < 8) && ($board->board[$py + 1][$from]->type == "-"))
+            {
+               
+                $py++;
+                $tabres[$cpt] = $from;
+                $cpt++;
+                $tabres[$cpt] = $py;
+                $cpt++;
+
+            }
         }
         $py = $to;
-        while (($py >= 0) && ($board->board[$py][$px]->type == "-"))
+        if ($py - 1 >= 0)
         {
-            $py--;
-            $tabres[$cpt] = $from;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
-            
-        }
-        
-        while (($px < 8) && ($board->board[$py][$px]->type == "-"))
-        {
-            $px++;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $to;
-            $cpt++;
-            
+            while (($py - 1 >= 0) && ($board->board[$py - 1][$from]->type == "-"))
+            {
+                $py--;
+                $tabres[$cpt] = $from;
+                $cpt++;
+                $tabres[$cpt] = $py;
+                $cpt++;
+
+            }
         }
         $px = $from;
-        while (($px >= 0) && ($board->board[$py][$px]->type == "-"))
+        if ($px + 1 < 8)
+        {    
+            while (($px + 1 < 8) && ($board->board[$to][$px + 1]->type == "-"))
+            {
+                $px++;
+                $tabres[$cpt] = $px;
+                $cpt++;
+                $tabres[$cpt] = $to;
+                $cpt++;
+
+            }
+        }
+        $px = $from;
+        if ($px - 1 > -1)     
         {
-            $px--;
-            $tabres[$cpt] = $x;
-            $cpt++;
-            $tabres[$cpt] = $to;
-            $cpt++;
+            while (($px - 1 >= 0) && ($board->board[$to][$px - 1]->type == "-"))
+            {
+                $px--;
+                $tabres[$cpt] = $px;
+                $cpt++;
+                $tabres[$cpt] = $to;
+                $cpt++;
+            }
         }
         return $tabres;
     }

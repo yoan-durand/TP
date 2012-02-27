@@ -52,110 +52,145 @@ class Queen extends Piece
         $py = $to;
         $tabres = array(0);
         
-        while (($py < 8) && ($board->board[$py][$px]->type == "-"))
+        if ($py + 1 < 8)
         {
-            $py++;
-            $tabres[$cpt] = $from;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
-            
+            while (($py < 8) && ($board->board[$py + 1][$from]->type == "-"))
+            {
+                
+                $py++;
+                $tabres[$cpt] = $from;
+                $cpt++;
+                $tabres[$cpt] = $py;
+                $cpt++;
+
+            }
         }
         $py = $to;
-        while (($py >= 0) && ($board->board[$py][$px]->type == "-"))
+        if ($py - 1 >= 0)
         {
-            $py--;
-            $tabres[$cpt] = $from;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
-            
+            while (($py >= 0) && ($board->board[$py - 1][$from]->type == "-"))
+            {
+                $py--;
+                $tabres[$cpt] = $from;
+                $cpt++;
+                $tabres[$cpt] = $py;
+                $cpt++;
+
+            }
         }
-        
-        while (($px < 8) && ($board->board[$py][$px]->type == "-"))
-        {
-            $px++;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $to;
-            $cpt++;
-            
+        if ($px + 1 < 8)
+        {    
+            while (($px + 1 < 8) && ($board->board[$to][$px + 1]->type == "-"))
+            {
+                $px++;
+                $tabres[$cpt] = $px;
+                $cpt++;
+                $tabres[$cpt] = $to;
+                $cpt++;
+
+            }
         }
         $px = $from;
-        while (($px >= 0) && ($board->board[$py][$px]->type == "-"))
+        if ($px - 1 >= 0)     
         {
-            $px--;
-            $tabres[$cpt] = $x;
-            $cpt++;
-            $tabres[$cpt] = $to;
-            $cpt++;
-        }
-        
-        $px = $from;
-        $py = $to;
-        while (($px < 8)&&($py < 8) && ($board->board[$py][$px]->type == "-"))
-        {
-            $px++;
-            $py++;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
-        }
-        
-        $px = $from;
-        $py = $to;
-        
-        while (($px >= 0)&&($py < 8) && ($board->board[$py][$px]->type == "-"))
-        {
-            $px--;
-            $py++;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
+            while (($px - 1 >= 0) && ($board->board[$to][$px - 1]->type == "-"))
+            {
+                $px--;
+                $tabres[$cpt] = $px;
+                $cpt++;
+                $tabres[$cpt] = $to;
+                $cpt++;
+            }
         }
         
         $px = $from;
         $py = $to;
-        
-        while (($px >= 0)&&($py >= 0) && ($board->board[$py][$px]->type == "-"))
+        if (($py + 1 < 8) )
         {
-            $px--;
-            $py--;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
+            if ($px + 1 < 8)
+            {
+                while (($px + 1 < 8)&&($py + 1 < 8) && ($board->board[$py + 1][$px + 1]->type == "-"))
+                {
+                    $px++;
+                    $py++;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
+        }
+        
+        $px = $from;
+        $py = $to;
+        if (($py + 1 > 8))
+        {
+            if ($px - 1 >= 0)
+            {
+                while (($px - 1 >= 0)&&($py  + 1 < 8) && ($board->board[$py + 1][$px - 1]->type == "-"))
+                {
+                    $px--;
+                    $py++;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
         }
         
         $px = $from;
         $py = $to;
         
-        while (($px < 8)&&($py >= 0) && ($board->board[$py][$px]->type == "-"))
+        if (($px - 1 >= 0))
         {
-            $px++;
-            $py--;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
+            if ($py - 1 >= 0)
+        
+            {
+                while (($px - 1 >= 0)&&($py - 1 >= 0) && ($board->board[$py - 1][$px - 1]->type == "-"))
+                {
+                    $px--;
+                    $py--;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
+        }
+        
+        $px = $from;
+        $py = $to;
+        if ($px + 1 < 8)
+        {
+           if ($py - 1 >= 0) 
+           {
+                while (($px + 1 < 8)&&($py - 1 >= 0) && ($board->board[$py - 1][$px + 1]->type == "-"))
+                {
+                    $px++;
+                    $py--;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
         }
         return $tabres;       
     }
 
     public function move($fromx, $fromy, $tox, $toy) {
-   $chess = $_SESSION["chessboard"];
+   $board = $_SESSION["chessboard"];
         $tab = array (0);
-        $board = $chess->board;
-        $board[$toy][$tox] = $chess->board[$fromy][$fromx];
+        $board = $board->board;
+        $board[$toy][$tox] = $board->board[$fromy][$fromx];
         $board[$fromy][$fromx] = new None($fromy, $fromx, "", FALSE);
         
         $tab[0]=$tox;
         $tab[1]=$toy;
         $tab[2]=$board[$toy][$tox]->type;
-        $chess->board = $board;
-        $_SESSION["chessboard"] = $chess;
+        $board->board = $board;
+        $_SESSION["chessboard"] = $board;
         return $tab;     
     }
 }

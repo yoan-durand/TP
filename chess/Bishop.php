@@ -57,54 +57,76 @@ class Bishop extends Piece
         $cpt = 0;
         
         $tabres = array(0);
-        
-        while (($px < 8)&&($py < 8) && ($chess->board[$py][$px]->type == "-"))
+        if (($py + 1 < 8) )
         {
-            $px++;
-            $py++;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
+            if ($px + 1 < 8)
+            {
+                while (($px + 1 < 8)&&($py + 1 < 8) && ($chess->board[$py + 1][$px + 1]->type == "-"))
+                {
+                    $px++;
+                    $py++;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
+        }
+        
+        $px = $from;
+        $py = $to;
+        if (($py + 1 > 8))
+        {
+            if ($px - 1 >= 0)
+            {
+                while (($px - 1 >= 0)&&($py  + 1 < 8) && ($chess->board[$py + 1][$px - 1]->type == "-"))
+                {
+                    $px--;
+                    $py++;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
         }
         
         $px = $from;
         $py = $to;
         
-        while (($px >= 0)&&($py < 8) && ($chess->board[$py][$px]->type == "-"))
+        if (($px - 1 >= 0))
         {
-            $px--;
-            $py++;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
+            if ($py - 1 >= 0)
+        
+            {
+                while (($px - 1 >= 0)&&($py - 1 >= 0) && ($chess->board[$py - 1][$px - 1]->type == "-"))
+                {
+                    $px--;
+                    $py--;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
         }
         
         $px = $from;
         $py = $to;
-        
-        while (($px >= 0)&&($py >= 0) && ($chess->board[$py][$px]->type == "-"))
+        if ($px + 1 < 8)
         {
-            $px--;
-            $py--;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
-        }
-        
-        $px = $from;
-        $py = $to;
-        
-        while (($px < 8)&&($py >= 0) && ($chess->board[$py][$px]->type == "-"))
-        {
-            $px++;
-            $py--;
-            $tabres[$cpt] = $px;
-            $cpt++;
-            $tabres[$cpt] = $py;
-            $cpt++;
+           if ($py - 1 >= 0) 
+           {
+                while (($px + 1 < 8)&&($py - 1 >= 0) && ($chess->board[$py - 1][$px + 1]->type == "-"))
+                {
+                    $px++;
+                    $py--;
+                    $tabres[$cpt] = $px;
+                    $cpt++;
+                    $tabres[$cpt] = $py;
+                    $cpt++;
+                }
+            }
         }
        
         return $tabres;

@@ -6,17 +6,19 @@ and open the template in the editor.
 <html>
     <head>
         <?php
-       // header("Content-Type: application/json");
         session_start();
         ?>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset=UTF-8">
+         <link rel="stylesheet" href="image/style.css" /> 
         <title>The Game</title>
         <script src="js/draw_board.js"></script>
     </head>
     <body>
-        <canvas id="mon_canvas" width="800" height="800">
+        <section>
+            <canvas id="mon_canvas" width="800" height="800" >
             looser tu supporte pas canvas
         </canvas>
+        </section>>
         <br/>
         <?php
             
