@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+    <beans>
+        <bean id="people" class="com.mti.sample.MTIPeople">
+            <property name="login" value="durand_y"/>
+            <property name="fullName" value="Yoan Durand"/>
+        </bean>
+        <bean id="hello" class="com.mti.sample.HelloWorld">
+            <property name="people" ref="people"/>
+        </bean>
+    </beans>
