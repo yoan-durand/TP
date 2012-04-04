@@ -43,13 +43,13 @@ namespace WebApplication1.DBO
         public string Dateback
         { 
             get {return _dateback;}
-            set {_dateback = value}
+            set { _dateback = value;}
         }
 
         public string IdLib 
         { 
             get {return _id_lib;}
-            set {_id_lib = value}
+            set { _id_lib = value; }
         }
         #endregion
 
