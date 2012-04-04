@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Books IDLibrary="123445"> 
+  <book name="Un risque Calculé"> 
+    <isbn>2-266-15584-9</isbn> 
+    <author>Neville</author> 
+    <number>23</number> 
+    <DateBack>20/08/2009</DateBack> 
+  </book> 
+  <book name="Le sang du temps"> 
+    <isbn>978-2-266-16753-6</isbn> 
+    <author>Chattam</author> 
+    <number>2</number> 
+    <DateBack>13/07/2009</DateBack> 
+  </book> 
+</Books> 
+
