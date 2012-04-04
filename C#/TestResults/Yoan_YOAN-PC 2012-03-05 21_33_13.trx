@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="9ec8ee33-f973-44c9-923e-af2cdcf0740d" name="Yoan@YOAN-PC 2012-03-05 21:33:13" runUser="Yoan-PC\Yoan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="01ac8a7a-83d2-444b-8cbc-d9722550ba5a">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Yoan_YOAN-PC 2012-03-05 21_33_13">
+      <DeploymentItem filename="C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\C#\ConsoleApplicationTestUnitaire\bin\Debug\ConsoleApplicationTestUnitaire.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-05T21:33:13.7135000+01:00" queuing="2012-03-05T21:33:23.5175000+01:00" start="2012-03-05T21:33:23.7305000+01:00" finish="2012-03-05T21:34:20.5870000+01:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="16" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="15" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="YOAN-PC" outcome="Error" timestamp="2012-03-05T21:34:20.5305000+01:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="PersonConstructorTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="f3e619c4-033e-1701-a2ae-7a9955055f50">
+      <Execution id="55cc9465-63a0-4aba-af65-9242562a0091" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PersonConstructorTest" />
+    </UnitTest>
+    <UnitTest name="LogMeConstructorTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="a4c3a13e-98ae-f2d0-e807-b8a7913b2555">
+      <Execution id="d2e30aae-801e-4607-a83c-598da7725119" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.LogMeTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LogMeConstructorTest" />
+    </UnitTest>
+    <UnitTest name="GetPersonTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="45a44344-b10a-31da-fe18-8321f25ca1a3">
+      <Execution id="2ba3a5c0-acbb-4750-bd9e-16dbd4eabe3e" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetPersonTest" />
+    </UnitTest>
+    <UnitTest name="PersonConstructorTest2" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="ebec95b7-f79e-f9af-6d21-6873c1502bb0">
+      <Execution id="26863fcb-aeb3-4f25-a64e-a16d4b63f4d0" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PersonConstructorTest2" />
+    </UnitTest>
+    <UnitTest name="AddressTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="706a76b3-b91c-3d28-ee31-0c9c58860488">
+      <Execution id="0162db1f-21e0-4db3-84d0-4b8bf8fc8cfc" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddressTest" />
+    </UnitTest>
+    <UnitTest name="ProgramConstructorTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="a3928d71-0d90-b11d-8ba6-9f61b459e3b5">
+      <Execution id="1891dc6a-2603-41e3-8569-5093420b8f72" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.ProgramTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ProgramConstructorTest" />
+    </UnitTest>
+    <UnitTest name="FirstnameTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="2a527d4c-4042-5f89-59a0-5f8b7a959fb0">
+      <Execution id="4a549957-e387-4162-b255-2c201e5a2ad7" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FirstnameTest" />
+    </UnitTest>
+    <UnitTest name="SavePersonTest1" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="f6fb3ed8-942f-e057-9f82-098ea0861d5f">
+      <Execution id="ee52cb63-3575-4615-b9a2-585a3096a0e4" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SavePersonTest1" />
+    </UnitTest>
+    <UnitTest name="MainTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="9a46fa9b-9a2e-3eff-02e4-ce3ff885083d">
+      <DeploymentItems>
+        <DeploymentItem filename="ConsoleApplicationTestUnitaire.exe" />
+      </DeploymentItems>
+      <Execution id="cf871a96-b36a-4d81-8424-903b55a38e28" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.ProgramTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MainTest" />
+    </UnitTest>
+    <UnitTest name="PersonConstructorTest1" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="60ba1730-ec87-d74d-950d-46ef849ced5e">
+      <Execution id="540769f3-1f40-4e98-ac3f-1cce7bea4464" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PersonConstructorTest1" />
+    </UnitTest>
+    <UnitTest name="LogTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="57b8c0a5-a20b-a02a-e278-3f649c904280">
+      <Execution id="bec0aa05-419c-4b77-90db-7e58f37cd6fd" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.LogMeTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LogTest" />
+    </UnitTest>
+    <UnitTest name="SavePersonTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="aaa6bb86-5f06-456a-e045-2a5ff4dee80f">
+      <Execution id="97f10f62-8373-4104-ad0f-5c82893c9f91" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SavePersonTest" />
+    </UnitTest>
+    <UnitTest name="GetPersonTest1" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="50703c19-70ac-e56d-661e-319cafcd0362">
+      <Execution id="0ec576cc-44a2-4dfa-a14b-3264016d32c8" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetPersonTest1" />
+    </UnitTest>
+    <UnitTest name="FunctionTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="4c35a09a-96c0-dc3a-2f32-13181bd51a77">
+      <Execution id="d81c4d87-c2f9-483e-95ee-647f72742d05" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FunctionTest" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="59863143-3238-122e-4d8a-637b491cc755">
+      <Execution id="f62a7f15-689b-4868-a367-9179988685ae" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.UnitTest1, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="NameTest" storage="c:\users\yoan\documents\cours_epita\ing2\projet\c#\testproject1\bin\debug\testproject1.dll" id="58324cfa-fb1a-c351-563f-be87c033cb11">
+      <Execution id="7a0d72ee-ff1c-4cff-8279-61fc520f6a7b" />
+      <TestMethod codeBase="C:/Users/Yoan/Documents/Cours_Epita/Ing2/Projet/C#/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PersonTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NameTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="ebec95b7-f79e-f9af-6d21-6873c1502bb0" executionId="26863fcb-aeb3-4f25-a64e-a16d4b63f4d0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="706a76b3-b91c-3d28-ee31-0c9c58860488" executionId="0162db1f-21e0-4db3-84d0-4b8bf8fc8cfc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a527d4c-4042-5f89-59a0-5f8b7a959fb0" executionId="4a549957-e387-4162-b255-2c201e5a2ad7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c35a09a-96c0-dc3a-2f32-13181bd51a77" executionId="d81c4d87-c2f9-483e-95ee-647f72742d05" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="58324cfa-fb1a-c351-563f-be87c033cb11" executionId="7a0d72ee-ff1c-4cff-8279-61fc520f6a7b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60ba1730-ec87-d74d-950d-46ef849ced5e" executionId="540769f3-1f40-4e98-ac3f-1cce7bea4464" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="50703c19-70ac-e56d-661e-319cafcd0362" executionId="0ec576cc-44a2-4dfa-a14b-3264016d32c8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6fb3ed8-942f-e057-9f82-098ea0861d5f" executionId="ee52cb63-3575-4615-b9a2-585a3096a0e4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3e619c4-033e-1701-a2ae-7a9955055f50" executionId="55cc9465-63a0-4aba-af65-9242562a0091" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45a44344-b10a-31da-fe18-8321f25ca1a3" executionId="2ba3a5c0-acbb-4750-bd9e-16dbd4eabe3e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aaa6bb86-5f06-456a-e045-2a5ff4dee80f" executionId="97f10f62-8373-4104-ad0f-5c82893c9f91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3928d71-0d90-b11d-8ba6-9f61b459e3b5" executionId="1891dc6a-2603-41e3-8569-5093420b8f72" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9a46fa9b-9a2e-3eff-02e4-ce3ff885083d" executionId="cf871a96-b36a-4d81-8424-903b55a38e28" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="59863143-3238-122e-4d8a-637b491cc755" executionId="f62a7f15-689b-4868-a367-9179988685ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a4c3a13e-98ae-f2d0-e807-b8a7913b2555" executionId="d2e30aae-801e-4607-a83c-598da7725119" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="57b8c0a5-a20b-a02a-e278-3f649c904280" executionId="bec0aa05-419c-4b77-90db-7e58f37cd6fd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="26863fcb-aeb3-4f25-a64e-a16d4b63f4d0" testId="ebec95b7-f79e-f9af-6d21-6873c1502bb0" testName="PersonConstructorTest2" computerName="YOAN-PC" duration="00:00:56.6450000" startTime="2012-03-05T21:33:23.8945000+01:00" endTime="2012-03-05T21:34:20.5395000+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26863fcb-aeb3-4f25-a64e-a16d4b63f4d0">
+    </UnitTestResult>
+    <UnitTestResult executionId="0162db1f-21e0-4db3-84d0-4b8bf8fc8cfc" testId="706a76b3-b91c-3d28-ee31-0c9c58860488" testName="AddressTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0162db1f-21e0-4db3-84d0-4b8bf8fc8cfc">
+    </UnitTestResult>
+    <UnitTestResult executionId="4a549957-e387-4162-b255-2c201e5a2ad7" testId="2a527d4c-4042-5f89-59a0-5f8b7a959fb0" testName="FirstnameTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4a549957-e387-4162-b255-2c201e5a2ad7">
+    </UnitTestResult>
+    <UnitTestResult executionId="d81c4d87-c2f9-483e-95ee-647f72742d05" testId="4c35a09a-96c0-dc3a-2f32-13181bd51a77" testName="FunctionTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d81c4d87-c2f9-483e-95ee-647f72742d05">
+    </UnitTestResult>
+    <UnitTestResult executionId="7a0d72ee-ff1c-4cff-8279-61fc520f6a7b" testId="58324cfa-fb1a-c351-563f-be87c033cb11" testName="NameTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a0d72ee-ff1c-4cff-8279-61fc520f6a7b">
+    </UnitTestResult>
+    <UnitTestResult executionId="540769f3-1f40-4e98-ac3f-1cce7bea4464" testId="60ba1730-ec87-d74d-950d-46ef849ced5e" testName="PersonConstructorTest1" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="540769f3-1f40-4e98-ac3f-1cce7bea4464">
+    </UnitTestResult>
+    <UnitTestResult executionId="0ec576cc-44a2-4dfa-a14b-3264016d32c8" testId="50703c19-70ac-e56d-661e-319cafcd0362" testName="GetPersonTest1" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ec576cc-44a2-4dfa-a14b-3264016d32c8">
+    </UnitTestResult>
+    <UnitTestResult executionId="ee52cb63-3575-4615-b9a2-585a3096a0e4" testId="f6fb3ed8-942f-e057-9f82-098ea0861d5f" testName="SavePersonTest1" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee52cb63-3575-4615-b9a2-585a3096a0e4">
+    </UnitTestResult>
+    <UnitTestResult executionId="55cc9465-63a0-4aba-af65-9242562a0091" testId="f3e619c4-033e-1701-a2ae-7a9955055f50" testName="PersonConstructorTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55cc9465-63a0-4aba-af65-9242562a0091">
+    </UnitTestResult>
+    <UnitTestResult executionId="2ba3a5c0-acbb-4750-bd9e-16dbd4eabe3e" testId="45a44344-b10a-31da-fe18-8321f25ca1a3" testName="GetPersonTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ba3a5c0-acbb-4750-bd9e-16dbd4eabe3e">
+    </UnitTestResult>
+    <UnitTestResult executionId="97f10f62-8373-4104-ad0f-5c82893c9f91" testId="aaa6bb86-5f06-456a-e045-2a5ff4dee80f" testName="SavePersonTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="97f10f62-8373-4104-ad0f-5c82893c9f91">
+    </UnitTestResult>
+    <UnitTestResult executionId="1891dc6a-2603-41e3-8569-5093420b8f72" testId="a3928d71-0d90-b11d-8ba6-9f61b459e3b5" testName="ProgramConstructorTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1891dc6a-2603-41e3-8569-5093420b8f72">
+    </UnitTestResult>
+    <UnitTestResult executionId="cf871a96-b36a-4d81-8424-903b55a38e28" testId="9a46fa9b-9a2e-3eff-02e4-ce3ff885083d" testName="MainTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf871a96-b36a-4d81-8424-903b55a38e28">
+    </UnitTestResult>
+    <UnitTestResult executionId="f62a7f15-689b-4868-a367-9179988685ae" testId="59863143-3238-122e-4d8a-637b491cc755" testName="TestMethod1" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f62a7f15-689b-4868-a367-9179988685ae">
+    </UnitTestResult>
+    <UnitTestResult executionId="d2e30aae-801e-4607-a83c-598da7725119" testId="a4c3a13e-98ae-f2d0-e807-b8a7913b2555" testName="LogMeConstructorTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d2e30aae-801e-4607-a83c-598da7725119">
+    </UnitTestResult>
+    <UnitTestResult executionId="bec0aa05-419c-4b77-90db-7e58f37cd6fd" testId="57b8c0a5-a20b-a02a-e278-3f649c904280" testName="LogTest" computerName="YOAN-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bec0aa05-419c-4b77-90db-7e58f37cd6fd">
+    </UnitTestResult>
+  </Results>
+</TestRun>

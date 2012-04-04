@@ -1,0 +1,10 @@
+C:\Users\Yoan\Desktop\ConsoleApplicationTestUnitaire\bin\Debug\ConsoleApplicationTestUnitaire.exe
+C:\Users\Yoan\Desktop\ConsoleApplicationTestUnitaire\bin\Debug\ConsoleApplicationTestUnitaire.pdb
+C:\Users\Yoan\Desktop\ConsoleApplicationTestUnitaire\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Yoan\Desktop\ConsoleApplicationTestUnitaire\obj\Debug\ConsoleApplicationTestUnitaire.exe
+C:\Users\Yoan\Desktop\ConsoleApplicationTestUnitaire\obj\Debug\ConsoleApplicationTestUnitaire.pdb
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\C#\ConsoleApplicationTestUnitaire\bin\Debug\ConsoleApplicationTestUnitaire.exe
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\C#\ConsoleApplicationTestUnitaire\bin\Debug\ConsoleApplicationTestUnitaire.pdb
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\C#\ConsoleApplicationTestUnitaire\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\C#\ConsoleApplicationTestUnitaire\obj\Debug\ConsoleApplicationTestUnitaire.exe
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\C#\ConsoleApplicationTestUnitaire\obj\Debug\ConsoleApplicationTestUnitaire.pdb
