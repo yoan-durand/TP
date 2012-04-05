@@ -8,3 +8,8 @@ C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\C#\Durand_yKBBooks\WebApplica
 C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\C#\Durand_yKBBooks\WebApplication1\bin\WebApplication1.dll
 C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\C#\Durand_yKBBooks\WebApplication1\bin\WebApplication1.pdb
 C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\C#\Durand_yKBBooks\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\NET\Durand_yKBBooks\WebApplication1\bin\WebApplication1.dll
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\NET\Durand_yKBBooks\WebApplication1\bin\WebApplication1.pdb
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\NET\Durand_yKBBooks\WebApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\NET\Durand_yKBBooks\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\Yoan\Documents\Cours_Epita\Ing2\Projet\TP\NET\Durand_yKBBooks\WebApplication1\obj\Debug\WebApplication1.pdb

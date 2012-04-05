@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <Books IDLibrary="123445"> 
-  <book name="Un risque Calculé"> 
+  <book name="Un risque Calculer"> 
     <isbn>2-266-15584-9</isbn> 
     <author>Neville</author> 
     <number>23</number> 

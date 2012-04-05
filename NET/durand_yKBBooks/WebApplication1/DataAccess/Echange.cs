@@ -17,21 +17,23 @@ namespace WebApplication1.DataAccess
             DBO.Books b = new DBO.Books ();
             List<DBO.Books> list = new List<DBO.Books>();
             XmlDocument xml = new XmlDocument ();
-            int i = 0;
-
-            xml.Load(filename);
+            int i = 1;
+            xml.Load(XmlReader.Create("file:///"+System.Web.HttpContext.Current.Server.MapPath("~/")+"/" +filename));
             b.IdLib = xml.SelectSingleNode("/Books/@IDLibrary").InnerText;
-
-            XmlNode node = xml.SelectSingleNode(balise+i.ToString ()+"]/");
+            string xpath = balise + i.ToString() + "]";
+            XmlNode node = xml.SelectSingleNode(xpath);
 
             list.Add(b);
-
-            while (node.HasChildNodes)
+            if (node != null)
             {
-                list.Add (new DBO.Books(xml.SelectSingleNode(balise+i.ToString ()+"]/@name").InnerText, xml.SelectSingleNode(balise+i.ToString ()+"]/isbn").Value, xml.SelectSingleNode(balise+i.ToString ()+"]/author").Value,
-                    xml.SelectSingleNode(balise+i.ToString ()+"]/number").Value, xml.SelectSingleNode(balise+i.ToString ()+"]/DateBack").Value));
-                i++;
-                node = xml.SelectSingleNode(balise+i.ToString ()+"]/");
+                while ((node != null) && (node.HasChildNodes))
+                {
+                    list.Add(new DBO.Books(xml.SelectSingleNode(xpath + "/@name").InnerText, xml.SelectSingleNode(xpath + "/isbn").InnerText, xml.SelectSingleNode(xpath + "/author").InnerText,
+                        xml.SelectSingleNode(xpath + "/number").InnerText, xml.SelectSingleNode(xpath + "/DateBack").InnerText));
+                    i++;
+                    xpath = balise + i.ToString() + "]";
+                    node = xml.SelectSingleNode(xpath);
+                }
             }
 
             return (list);
@@ -56,7 +58,7 @@ namespace WebApplication1.DataAccess
 
             foreach (DBO.Books book in list)
             {
-                if (book.IdLib.Equals(""))
+                if (book.IdLib == null)
                 {
                     XmlElement b = xml.CreateElement("book");
                     XmlElement isbn = xml.CreateElement("isbn");
@@ -65,40 +67,35 @@ namespace WebApplication1.DataAccess
                     XmlElement date = xml.CreateElement("DateBack");
 
                     b.SetAttribute("name", book.Name);
-                    isbn.Value = book.Isbn;
-                    author.Value = book.Author;
-                    number.Value = book.Number;
-                    date.Value = book.Dateback;
+                    isbn.InnerText = book.Isbn;
+                    author.InnerText = book.Author;
+                    number.InnerText = book.Number;
+                    date.InnerText = book.Dateback;
 
                     XmlNode bookNode = rootNode.AppendChild(b);
                     XmlNode IsbnNode = bookNode.AppendChild(isbn);
                     XmlNode authorNode = bookNode.AppendChild(author);
                     XmlNode numberNode = bookNode.AppendChild(number);
+                    XmlNode dateNode = bookNode.AppendChild(date);
                 }
 
             }
 
-            xml.Save("KBBooks_Dom.xml");
+            xml.Save(System.Web.HttpContext.Current.Server.MapPath("~/")+"/" + "KBBooks_Dom.xml");
         }
 
 
         public List<DBO.Books> parse_linq(string filename)
         {
             List<DBO.Books> list = new List<DBO.Books>();
-            XDocument xdoc = XDocument.Load(filename);
+            XDocument xdoc = XDocument.Load(XmlReader.Create("file:///"+System.Web.HttpContext.Current.Server.MapPath("~/")+"/" +filename));
             var id = from lib in xdoc.Descendants("Books")
                      where (string)lib.Attribute("IDLibrary") != ""
                      select lib;
 
-            var b = from book in xdoc.Descendants("Books")
-                        select new 
-                        {      
-                          Name = (string) book.Element("book").Attribute("name"),
-                          Isbn = book.Element("isbn").Value,
-                          Author = book.Element("author").Value,
-                          Number = book.Element("number").Value,
-                          DateBack = book.Element("DateBack").Value
-                        };
+            var b = from book in xdoc.Descendants("book")
+                    select book;  
+                        
             DBO.Books first = new DBO.Books();
             foreach (XElement l_id in id)
             {
@@ -106,9 +103,15 @@ namespace WebApplication1.DataAccess
             }
             list.Add(first);
 
-            foreach (var books in b)
+            foreach (XElement books in b)
             {
-                list.Add(new DBO.Books(books.Name, books.Isbn, books.Author, books.Number, books.DateBack));
+                string name = (string)books.Attribute("name");
+                string isbn = books.Element("isbn").Value;
+                string author = books.Element("author").Value;
+                string number = books.Element("number").Value;
+                string date = books.Element("DateBack").Value;
+                list.Add(new DBO.Books(name, isbn, author, number, date));
+                Console.WriteLine(books);
             }
 
             return list;
@@ -122,12 +125,15 @@ namespace WebApplication1.DataAccess
 
             foreach (DBO.Books book in list)
             {
-                XElement elt = new XElement( "book",new XAttribute ("name", book.Name), new XElement("isbn", book.Isbn), new XElement ("author", book.Author),
-                    new XElement ("number", book.Number), new XElement("DateBack", book.Dateback));
-                xdoc.Element("Books").Add(elt);
+                if (book.IdLib == null)
+                {
+                    XElement elt = new XElement( "book",new XAttribute ("name", book.Name), new XElement("isbn", book.Isbn), new XElement ("author", book.Author),
+                      new XElement ("number", book.Number), new XElement("DateBack", book.Dateback));
+                    xdoc.Element("Books").Add(elt);
+                }
             }
 
-            xdoc.Save("Books_linQ.xml");
+            xdoc.Save(System.Web.HttpContext.Current.Server.MapPath("~/")+"/" +"Books_linQ.xml");
 
         }
     }
