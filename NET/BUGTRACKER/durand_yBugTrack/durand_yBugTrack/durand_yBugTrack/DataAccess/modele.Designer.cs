@@ -443,15 +443,13 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="title">Initial value of the title property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="createdate">Initial value of the Createdate property.</param>
-        /// <param name="description">Initial value of the Description property.</param>
-        public static T_BugCritic CreateT_BugCritic(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate, global::System.String description)
+        public static T_BugCritic CreateT_BugCritic(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
         {
             T_BugCritic t_BugCritic = new T_BugCritic();
             t_BugCritic.id = id;
             t_BugCritic.title = title;
             t_BugCritic.Type = type;
             t_BugCritic.Createdate = createdate;
-            t_BugCritic.Description = description;
             return t_BugCritic;
         }
 
@@ -461,7 +459,7 @@ namespace durand_yBugTrack.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -473,7 +471,7 @@ namespace durand_yBugTrack.DataAccess
             {
                 OnDescriptionChanging(value);
                 ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, false);
+                _Description = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Description");
                 OnDescriptionChanged();
             }
@@ -503,15 +501,13 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="title">Initial value of the title property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="createdate">Initial value of the Createdate property.</param>
-        /// <param name="description">Initial value of the Description property.</param>
-        public static T_BugMinor CreateT_BugMinor(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate, global::System.String description)
+        public static T_BugMinor CreateT_BugMinor(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
         {
             T_BugMinor t_BugMinor = new T_BugMinor();
             t_BugMinor.id = id;
             t_BugMinor.title = title;
             t_BugMinor.Type = type;
             t_BugMinor.Createdate = createdate;
-            t_BugMinor.Description = description;
             return t_BugMinor;
         }
 
@@ -521,7 +517,7 @@ namespace durand_yBugTrack.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -533,7 +529,7 @@ namespace durand_yBugTrack.DataAccess
             {
                 OnDescriptionChanging(value);
                 ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, false);
+                _Description = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Description");
                 OnDescriptionChanged();
             }
@@ -563,15 +559,13 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="title">Initial value of the title property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="createdate">Initial value of the Createdate property.</param>
-        /// <param name="description">Initial value of the Description property.</param>
-        public static T_BugTypo CreateT_BugTypo(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate, global::System.String description)
+        public static T_BugTypo CreateT_BugTypo(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
         {
             T_BugTypo t_BugTypo = new T_BugTypo();
             t_BugTypo.id = id;
             t_BugTypo.title = title;
             t_BugTypo.Type = type;
             t_BugTypo.Createdate = createdate;
-            t_BugTypo.Description = description;
             return t_BugTypo;
         }
 
@@ -581,7 +575,7 @@ namespace durand_yBugTrack.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -593,7 +587,7 @@ namespace durand_yBugTrack.DataAccess
             {
                 OnDescriptionChanging(value);
                 ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, false);
+                _Description = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Description");
                 OnDescriptionChanged();
             }

@@ -7,5 +7,6 @@ namespace durand_yBugTrack.BusinessManagement
 {
     public class Bug
     {
+        
     }
 }

@@ -263,13 +263,13 @@
           <End Role="T_Transaction" Type="BugTrackLikeModel.T_Transaction" Multiplicity="*" />
         </Association>
         <EntityType Name="T_BugTypo" BaseType="BugTrackLikeModel.T_Bug" >
-          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" />
         </EntityType>
         <EntityType Name="T_BugCritic" BaseType="BugTrackLikeModel.T_Bug" >
-          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" />
         </EntityType>
         <EntityType Name="T_BugMinor" BaseType="BugTrackLikeModel.T_Bug" >
-          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -280,6 +280,7 @@
           <EntitySetMapping Name="T_Bug">
             <EntityTypeMapping TypeName="IsTypeOf(BugTrackLikeModel.T_Bug)">
               <MappingFragment StoreEntitySet="T_Bug">
+                <ScalarProperty Name="Type" ColumnName="Description" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Createdate" ColumnName="Createdate" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -307,7 +308,28 @@
             <ScalarProperty Name="email" ColumnName="email" />
             <ScalarProperty Name="phone" ColumnName="phone" />
             <ScalarProperty Name="password" ColumnName="password" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          </MappingFragment></EntityTypeMapping>
+            <EntityTypeMapping TypeName="BugTrackLikeModel.T_User">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="BugTrackLikeModel.Store.CreateUser" >
+                  <ScalarProperty Name="password" ParameterName="Password" />
+                  <ScalarProperty Name="phone" ParameterName="Phone" />
+                  <ScalarProperty Name="email" ParameterName="Email" />
+                  <ScalarProperty Name="firstname" ParameterName="FirstName" />
+                  <ScalarProperty Name="name" ParameterName="Name" />
+                  <ResultBinding Name="id" ColumnName="id" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="BugTrackLikeModel.Store.DeleteUser" >
+                  <ScalarProperty Name="id" ParameterName="ID" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="BugTrackLikeModel.Store.UpdateUser" >
+                  <ScalarProperty Name="password" ParameterName="Password" />
+                  <ScalarProperty Name="phone" ParameterName="Phone" />
+                  <ScalarProperty Name="email" ParameterName="Email" />
+                  <ScalarProperty Name="id" ParameterName="Id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping></EntitySetMapping>
           <AssociationSetMapping Name="FK_T_Bug_T_Project" TypeName="BugTrackLikeModel.FK_T_Bug_T_Project" StoreEntitySet="T_Bug">
             <EndProperty Name="T_Project">
               <ScalarProperty Name="Id" ColumnName="idProjet" />
@@ -373,7 +395,7 @@
         <EntityTypeShape EntityType="BugTrackLikeModel.T_Comment" Width="1.5" PointX="10.25" PointY="3.125" Height="1.7879850260416657" IsExpanded="true" />
         <EntityTypeShape EntityType="BugTrackLikeModel.T_Project" Width="1.5" PointX="0.75" PointY="3.625" Height="1.9802864583333331" IsExpanded="true" />
         <EntityTypeShape EntityType="BugTrackLikeModel.T_Transaction" Width="1.5" PointX="4.375" PointY="0.5" Height="1.7879850260416657" IsExpanded="true" />
-        <EntityTypeShape EntityType="BugTrackLikeModel.T_User" Width="1.5" PointX="8" PointY="0.5" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackLikeModel.T_User" Width="1.5" PointX="8" PointY="0.5" Height="2.5571907552083331" IsExpanded="true" />
         <AssociationConnector Association="BugTrackLikeModel.FK_T_Bug_T_Project" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="4.8651432291666667" />
           <ConnectorPoint PointX="5.875" PointY="4.8651432291666667" />
@@ -388,13 +410,13 @@
           <ConnectorPoint PointX="5.875" PointY="1.87224126953125" />
         </AssociationConnector>
         <AssociationConnector Association="BugTrackLikeModel.FK_T_Comment_T_User" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.5" PointY="1.7785953776041665" />
-          <ConnectorPoint PointX="11" PointY="1.7785953776041665" />
+          <ConnectorPoint PointX="9.5" PointY="1.7785953776041663" />
+          <ConnectorPoint PointX="11" PointY="1.7785953776041663" />
           <ConnectorPoint PointX="11" PointY="3.125" />
         </AssociationConnector>
         <AssociationConnector Association="BugTrackLikeModel.FK_T_Transaction_T_User" ManuallyRouted="false">
-          <ConnectorPoint PointX="8" PointY="1.3939925130208328" />
-          <ConnectorPoint PointX="5.875" PointY="1.3939925130208328" />
+          <ConnectorPoint PointX="8" PointY="1.123620634765625" />
+          <ConnectorPoint PointX="5.875" PointY="1.123620634765625" />
         </AssociationConnector>
         <EntityTypeShape EntityType="BugTrackLikeModel.T_BugTypo" Width="1.5" PointX="5.875" PointY="8.25" Height="1.2110807291666657" />
         <InheritanceConnector EntityType="BugTrackLikeModel.T_BugTypo" >

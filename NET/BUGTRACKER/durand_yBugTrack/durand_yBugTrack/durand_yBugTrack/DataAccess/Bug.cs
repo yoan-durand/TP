@@ -7,5 +7,29 @@ namespace durand_yBugTrack.DataAccess
 {
     public class Bug
     {
+        public bool CreateBug(T_Bug bug, long idProject)
+        {
+            return false;
+        }
+
+        public bool DeleteBug(long id)
+        {
+            return false;
+        }
+
+        public bool UpdateBug(T_Bug bug)
+        {
+            return false;
+        }
+
+        public T_Bug GetBug(long id)
+        {
+            return;
+        }
+
+        public List<T_Bug> GetListBug()
+        {
+            return;
+        }
     }
 }
