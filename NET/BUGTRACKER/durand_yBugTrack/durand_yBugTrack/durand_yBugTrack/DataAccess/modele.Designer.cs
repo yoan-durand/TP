@@ -33,32 +33,32 @@ namespace durand_yBugTrack.DataAccess
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class BugTrackLikeEntities : ObjectContext
+    public partial class BugTrackLikeEntities1 : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new BugTrackLikeEntities object using the connection string found in the 'BugTrackLikeEntities' section of the application configuration file.
+        /// Initializes a new BugTrackLikeEntities1 object using the connection string found in the 'BugTrackLikeEntities1' section of the application configuration file.
         /// </summary>
-        public BugTrackLikeEntities() : base("name=BugTrackLikeEntities", "BugTrackLikeEntities")
+        public BugTrackLikeEntities1() : base("name=BugTrackLikeEntities1", "BugTrackLikeEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new BugTrackLikeEntities object.
+        /// Initialize a new BugTrackLikeEntities1 object.
         /// </summary>
-        public BugTrackLikeEntities(string connectionString) : base(connectionString, "BugTrackLikeEntities")
+        public BugTrackLikeEntities1(string connectionString) : base(connectionString, "BugTrackLikeEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new BugTrackLikeEntities object.
+        /// Initialize a new BugTrackLikeEntities1 object.
         /// </summary>
-        public BugTrackLikeEntities(EntityConnection connection) : base(connection, "BugTrackLikeEntities")
+        public BugTrackLikeEntities1(EntityConnection connection) : base(connection, "BugTrackLikeEntities1")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -211,9 +211,9 @@ namespace durand_yBugTrack.DataAccess
     [EdmEntityTypeAttribute(NamespaceName="BugTrackLikeModel", Name="T_Bug")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    [KnownTypeAttribute(typeof(T_BugTypo))]
-    [KnownTypeAttribute(typeof(T_BugCritic))]
     [KnownTypeAttribute(typeof(T_BugMinor))]
+    [KnownTypeAttribute(typeof(T_BugCritic))]
+    [KnownTypeAttribute(typeof(T_BugTypo))]
     public partial class T_Bug : EntityObject
     {
         #region Factory Method
@@ -225,7 +225,7 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="title">Initial value of the title property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="createdate">Initial value of the Createdate property.</param>
-        public static T_Bug CreateT_Bug(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
+        public static T_Bug CreateT_Bug(global::System.Int64 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
         {
             T_Bug t_Bug = new T_Bug();
             t_Bug.id = id;
@@ -243,7 +243,7 @@ namespace durand_yBugTrack.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int64 id
         {
             get
             {
@@ -261,8 +261,8 @@ namespace durand_yBugTrack.DataAccess
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
+        private global::System.Int64 _id;
+        partial void OnidChanging(global::System.Int64 value);
         partial void OnidChanged();
     
         /// <summary>
@@ -443,7 +443,7 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="title">Initial value of the title property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="createdate">Initial value of the Createdate property.</param>
-        public static T_BugCritic CreateT_BugCritic(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
+        public static T_BugCritic CreateT_BugCritic(global::System.Int64 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
         {
             T_BugCritic t_BugCritic = new T_BugCritic();
             t_BugCritic.id = id;
@@ -501,7 +501,7 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="title">Initial value of the title property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="createdate">Initial value of the Createdate property.</param>
-        public static T_BugMinor CreateT_BugMinor(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
+        public static T_BugMinor CreateT_BugMinor(global::System.Int64 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
         {
             T_BugMinor t_BugMinor = new T_BugMinor();
             t_BugMinor.id = id;
@@ -559,7 +559,7 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="title">Initial value of the title property.</param>
         /// <param name="type">Initial value of the Type property.</param>
         /// <param name="createdate">Initial value of the Createdate property.</param>
-        public static T_BugTypo CreateT_BugTypo(global::System.Int32 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
+        public static T_BugTypo CreateT_BugTypo(global::System.Int64 id, global::System.String title, global::System.String type, global::System.DateTime createdate)
         {
             T_BugTypo t_BugTypo = new T_BugTypo();
             t_BugTypo.id = id;
@@ -615,7 +615,7 @@ namespace durand_yBugTrack.DataAccess
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="details">Initial value of the details property.</param>
-        public static T_Comment CreateT_Comment(global::System.Int32 id, global::System.String details)
+        public static T_Comment CreateT_Comment(global::System.Int64 id, global::System.String details)
         {
             T_Comment t_Comment = new T_Comment();
             t_Comment.id = id;
@@ -631,7 +631,7 @@ namespace durand_yBugTrack.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int64 id
         {
             get
             {
@@ -649,8 +649,8 @@ namespace durand_yBugTrack.DataAccess
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
+        private global::System.Int64 _id;
+        partial void OnidChanging(global::System.Int64 value);
         partial void OnidChanged();
     
         /// <summary>
@@ -777,7 +777,7 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="name">Initial value of the name property.</param>
         /// <param name="version">Initial value of the version property.</param>
         /// <param name="startDate">Initial value of the startDate property.</param>
-        public static T_Project CreateT_Project(global::System.Int32 id, global::System.String name, global::System.Double version, global::System.DateTime startDate)
+        public static T_Project CreateT_Project(global::System.Int64 id, global::System.String name, global::System.Double version, global::System.DateTime startDate)
         {
             T_Project t_Project = new T_Project();
             t_Project.Id = id;
@@ -795,7 +795,7 @@ namespace durand_yBugTrack.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Int64 Id
         {
             get
             {
@@ -813,8 +813,8 @@ namespace durand_yBugTrack.DataAccess
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
+        private global::System.Int64 _Id;
+        partial void OnIdChanging(global::System.Int64 value);
         partial void OnIdChanged();
     
         /// <summary>
@@ -933,7 +933,7 @@ namespace durand_yBugTrack.DataAccess
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
         /// <param name="statut">Initial value of the statut property.</param>
-        public static T_Transaction CreateT_Transaction(global::System.Int32 id, global::System.String statut)
+        public static T_Transaction CreateT_Transaction(global::System.Int64 id, global::System.String statut)
         {
             T_Transaction t_Transaction = new T_Transaction();
             t_Transaction.id = id;
@@ -949,7 +949,7 @@ namespace durand_yBugTrack.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int64 id
         {
             get
             {
@@ -967,8 +967,8 @@ namespace durand_yBugTrack.DataAccess
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
+        private global::System.Int64 _id;
+        partial void OnidChanging(global::System.Int64 value);
         partial void OnidChanged();
     
         /// <summary>
@@ -1097,7 +1097,7 @@ namespace durand_yBugTrack.DataAccess
         /// <param name="email">Initial value of the email property.</param>
         /// <param name="phone">Initial value of the phone property.</param>
         /// <param name="password">Initial value of the password property.</param>
-        public static T_User CreateT_User(global::System.Int32 id, global::System.String name, global::System.String firstname, global::System.String email, global::System.String phone, global::System.String password)
+        public static T_User CreateT_User(global::System.Int64 id, global::System.String name, global::System.String firstname, global::System.String email, global::System.String phone, global::System.String password)
         {
             T_User t_User = new T_User();
             t_User.id = id;
@@ -1117,7 +1117,7 @@ namespace durand_yBugTrack.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int64 id
         {
             get
             {
@@ -1135,8 +1135,8 @@ namespace durand_yBugTrack.DataAccess
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
+        private global::System.Int64 _id;
+        partial void OnidChanging(global::System.Int64 value);
         partial void OnidChanged();
     
         /// <summary>
