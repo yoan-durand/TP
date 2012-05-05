@@ -264,7 +264,7 @@ window.onload = function ()
    // alert ('avant state');
     xhr.onreadystatechange = function() { // On gère ici une requête asynchrone
         if (xhr.readyState == 4 && xhr.status == 200) {
-            alert (xhr.responseText);
+         
             var json = eval('('+xhr.responseText+')');
             //alert ('appel colorcase');
             colorcase(json);
@@ -284,7 +284,6 @@ window.onload = function ()
         var i = 0;
     if (tablo[tablo.length - 1]>= "A" && tablo[tablo.length - 1] <= "Z")
         {
-            alert (carre);
            for (var l = 0; l<carre.length; l++)
                {
                     if (carre[l] % 2 == 0)

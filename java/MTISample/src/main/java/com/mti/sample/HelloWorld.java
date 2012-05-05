@@ -5,6 +5,8 @@
         
 package com.mti.sample;
 
+import com.mti.webcxf.MTIPeople;
+
 /**
  *
  * @author durand_y
