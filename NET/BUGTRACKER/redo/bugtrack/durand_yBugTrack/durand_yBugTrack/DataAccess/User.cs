@@ -69,7 +69,7 @@ namespace durand_yBugTrack.DataAccess
             }
         }
 
-        public List<T_User> GetListUser()
+        public static List<T_User> GetListUser()
         {
             using (BugTrackEntities2 bugtrack = new BugTrackEntities2())
             {

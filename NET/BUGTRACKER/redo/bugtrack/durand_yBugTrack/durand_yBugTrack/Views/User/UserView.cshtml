@@ -1,0 +1,30 @@
+﻿@model durand_yBugtdack.Models.UserModel
+@{
+    ViewBag.Title = "UserView";
+}
+
+<h2>UserView</h2>
+<div id="main">
+    <table id="showdata">
+        <thead>
+            <tr>
+            <td>Nom</td>
+            <td>Prenom</td>
+            <td>Mail</td>
+            <td>Phone</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (durand_yBugTrack.Models.UserItem  user in Model.userlist)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Firstname</td>
+                    <td>@user.Mail</td>
+                    <td>@user.Phone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

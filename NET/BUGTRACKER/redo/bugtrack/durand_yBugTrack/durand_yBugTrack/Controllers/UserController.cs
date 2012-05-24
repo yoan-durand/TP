@@ -11,9 +11,13 @@ namespace durand_yBugTrack.Controllers
         //
         // GET: /User/
 
-        public ActionResult Index()
+        public ActionResult User()
         {
-            return View();
+            durand_yBugTrack.Models.UserModel usermodel = new Models.UserModel();
+
+            usermodel.userlist = BusinessManagement.User.getlist();
+
+            return View("UserView", usermodel);
         }
 
     }

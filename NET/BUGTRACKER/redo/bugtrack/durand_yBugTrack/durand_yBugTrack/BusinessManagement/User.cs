@@ -38,9 +38,26 @@ namespace durand_yBugTrack.BusinessManagement
 
         public List<DataAccess.T_User> GetListUser()
         {
-            DataAccess.User u = new DataAccess.User();
+            return DataAccess.User.GetListUser();
+        }
 
-            return u.GetListUser();
+        public static List<Models.UserItem> getlist()
+        {
+            List<DataAccess.T_User> list = DataAccess.User.GetListUser();
+            List<Models.UserItem> listuseritem = new List<Models.UserItem>();
+            foreach (DataAccess.T_User user in list)
+            {
+                Models.UserItem useritem = new Models.UserItem()
+                {
+                    Name = user.name,
+                    Firstname = user.firstname,
+                    Mail = user.firstname,
+                    Password = user.password,
+                    Phone = user.phone
+                };
+                listuseritem.Add(useritem);
+            }
+            return listuseritem;
         }
     }
 }

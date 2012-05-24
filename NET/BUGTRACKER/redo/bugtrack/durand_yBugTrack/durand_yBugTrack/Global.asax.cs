@@ -24,7 +24,7 @@ namespace durand_yBugTrack
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Index", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
@@ -35,8 +35,6 @@ namespace durand_yBugTrack
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-
-            BusinessManagement.Bug.GetBug(1);
         }
     }
 }
