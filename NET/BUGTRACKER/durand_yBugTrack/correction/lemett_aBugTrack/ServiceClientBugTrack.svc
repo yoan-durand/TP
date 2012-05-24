@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="lemett_aBugTrack.ServiceClientBugTrack" CodeBehind="ServiceClientBugTrack.svc.cs" %>

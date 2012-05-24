@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BugTrackModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BugTrackModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="BugTrackModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="T_Bug" EntityType="BugTrackModel.Store.T_Bug" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="T_Comment" EntityType="BugTrackModel.Store.T_Comment" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="T_Project" EntityType="BugTrackModel.Store.T_Project" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="T_Transaction" EntityType="BugTrackModel.Store.T_Transaction" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="T_User" EntityType="BugTrackModel.Store.T_User" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_T_Bug_T_Project" Association="BugTrackModel.Store.FK_T_Bug_T_Project">
+            <End Role="T_Project" EntitySet="T_Project" />
+            <End Role="T_Bug" EntitySet="T_Bug" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Comment_T_Bug" Association="BugTrackModel.Store.FK_T_Comment_T_Bug">
+            <End Role="T_Bug" EntitySet="T_Bug" />
+            <End Role="T_Comment" EntitySet="T_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Comment_T_User" Association="BugTrackModel.Store.FK_T_Comment_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Comment" EntitySet="T_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Transaction_T_Bug" Association="BugTrackModel.Store.FK_T_Transaction_T_Bug">
+            <End Role="T_Bug" EntitySet="T_Bug" />
+            <End Role="T_Transaction" EntitySet="T_Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Transaction_T_User" Association="BugTrackModel.Store.FK_T_Transaction_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Transaction" EntitySet="T_Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="T_Bug">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="idProject" Type="bigint" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idUser" Type="bigint" Nullable="false" />
+          <Property Name="idBug" Type="bigint" Nullable="false" />
+          <Property Name="details" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="version" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="startDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idBug" Type="bigint" Nullable="false" />
+          <Property Name="idUser" Type="bigint" Nullable="false" />
+          <Property Name="statut" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_T_Bug_T_Project">
+          <End Role="T_Project" Type="BugTrackModel.Store.T_Project" Multiplicity="1" />
+          <End Role="T_Bug" Type="BugTrackModel.Store.T_Bug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Project">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Bug">
+              <PropertyRef Name="idProject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Comment_T_Bug">
+          <End Role="T_Bug" Type="BugTrackModel.Store.T_Bug" Multiplicity="1" />
+          <End Role="T_Comment" Type="BugTrackModel.Store.T_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Bug">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Comment">
+              <PropertyRef Name="idBug" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Comment_T_User">
+          <End Role="T_User" Type="BugTrackModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Comment" Type="BugTrackModel.Store.T_Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Comment">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Transaction_T_Bug">
+          <End Role="T_Bug" Type="BugTrackModel.Store.T_Bug" Multiplicity="1" />
+          <End Role="T_Transaction" Type="BugTrackModel.Store.T_Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Bug">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Transaction">
+              <PropertyRef Name="idBug" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Transaction_T_User">
+          <End Role="T_User" Type="BugTrackModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Transaction" Type="BugTrackModel.Store.T_Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Transaction">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="firstname" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="bigint" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="firstname" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BugTrackModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BugTrackEntities">
+          <EntitySet Name="sysdiagrams" EntityType="BugTrackModel.sysdiagrams" />
+          <EntitySet Name="T_Bug" EntityType="BugTrackModel.T_Bug" />
+          <EntitySet Name="T_Comment" EntityType="BugTrackModel.T_Comment" />
+          <EntitySet Name="T_Project" EntityType="BugTrackModel.T_Project" />
+          <EntitySet Name="T_Transaction" EntityType="BugTrackModel.T_Transaction" />
+          <EntitySet Name="T_User" EntityType="BugTrackModel.T_User" />
+          <AssociationSet Name="FK_T_Bug_T_Project" Association="BugTrackModel.FK_T_Bug_T_Project">
+            <End Role="T_Project" EntitySet="T_Project" />
+            <End Role="T_Bug" EntitySet="T_Bug" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Transaction_T_Bug" Association="BugTrackModel.FK_T_Transaction_T_Bug">
+            <End Role="T_Bug" EntitySet="T_Bug" />
+            <End Role="T_Transaction" EntitySet="T_Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Comment_T_User" Association="BugTrackModel.FK_T_Comment_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Comment" EntitySet="T_Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Transaction_T_User" Association="BugTrackModel.FK_T_Transaction_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Transaction" EntitySet="T_Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Comment_T_Bug" Association="BugTrackModel.FK_T_Comment_T_Bug">
+            <End Role="T_Bug" EntitySet="T_Bug" />
+            <End Role="T_Comment" EntitySet="T_Comment" /></AssociationSet></EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="T_Bug" Abstract="true">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="T_Project" Relationship="BugTrackModel.FK_T_Bug_T_Project" FromRole="T_Bug" ToRole="T_Project" />
+          <NavigationProperty Name="T_Transaction" Relationship="BugTrackModel.FK_T_Transaction_T_Bug" FromRole="T_Bug" ToRole="T_Transaction" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="T_Comment" Relationship="BugTrackModel.FK_T_Comment_T_Bug" FromRole="T_Bug" ToRole="T_Comment" /></EntityType>
+        <EntityType Name="T_Comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="details" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_User" Relationship="BugTrackModel.FK_T_Comment_T_User" FromRole="T_Comment" ToRole="T_User" />
+          <NavigationProperty Name="T_Bug" Relationship="BugTrackModel.FK_T_Comment_T_Bug" FromRole="T_Comment" ToRole="T_Bug" /></EntityType>
+        <EntityType Name="T_Project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="version" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="startDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="T_Bug" Relationship="BugTrackModel.FK_T_Bug_T_Project" FromRole="T_Project" ToRole="T_Bug" />
+        </EntityType>
+        <EntityType Name="T_Transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="statut" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Bug" Relationship="BugTrackModel.FK_T_Transaction_T_Bug" FromRole="T_Transaction" ToRole="T_Bug" />
+          <NavigationProperty Name="T_User" Relationship="BugTrackModel.FK_T_Transaction_T_User" FromRole="T_Transaction" ToRole="T_User" />
+          </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="T_Comment" Relationship="BugTrackModel.FK_T_Comment_T_User" FromRole="T_User" ToRole="T_Comment" />
+          <NavigationProperty Name="T_Transaction" Relationship="BugTrackModel.FK_T_Transaction_T_User" FromRole="T_User" ToRole="T_Transaction" />
+        </EntityType>
+        <Association Name="FK_T_Bug_T_Project">
+          <End Role="T_Project" Type="BugTrackModel.T_Project" Multiplicity="1" />
+          <End Role="T_Bug" Type="BugTrackModel.T_Bug" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_T_Transaction_T_Bug">
+          <End Role="T_Bug" Type="BugTrackModel.T_Bug" Multiplicity="1" />
+          <End Role="T_Transaction" Type="BugTrackModel.T_Transaction" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_T_Comment_T_User">
+          <End Role="T_User" Type="BugTrackModel.T_User" Multiplicity="1" />
+          <End Role="T_Comment" Type="BugTrackModel.T_Comment" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_T_Transaction_T_User">
+          <End Role="T_User" Type="BugTrackModel.T_User" Multiplicity="1" />
+          <End Role="T_Transaction" Type="BugTrackModel.T_Transaction" Multiplicity="*" />
+        </Association>
+        <EntityType Name="T_BugCritic" BaseType="BugTrackModel.T_Bug">
+          <Property Name="Description" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="T_BugMinor" BaseType="BugTrackModel.T_Bug">
+          <Property Name="Description" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="T_BugTypo" BaseType="BugTrackModel.T_Bug">
+          <Property Name="Description" Type="String" Nullable="true" /></EntityType>
+        <Association Name="FK_T_Comment_T_Bug">
+          <End Type="BugTrackModel.T_Bug" Role="T_Bug" Multiplicity="1" />
+          <End Type="BugTrackModel.T_Comment" Role="T_Comment" Multiplicity="*" /></Association></Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BugTrackModelStoreContainer" CdmEntityContainer="BugTrackEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.sysdiagrams)">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Bug">
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_Bug)">
+              <MappingFragment StoreEntitySet="T_Bug">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_BugCritic)">
+              <MappingFragment StoreEntitySet="T_Bug">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <Condition ColumnName="Type" Value="0" /></MappingFragment></EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_BugMinor)">
+              <MappingFragment StoreEntitySet="T_Bug">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <Condition ColumnName="Type" Value="1" /></MappingFragment></EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_BugTypo)">
+              <MappingFragment StoreEntitySet="T_Bug">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <Condition ColumnName="Type" Value="2" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_Comment">
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_Comment)">
+              <MappingFragment StoreEntitySet="T_Comment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="details" ColumnName="details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Project">
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_Project)">
+              <MappingFragment StoreEntitySet="T_Project">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Transaction">
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_Transaction)">
+              <MappingFragment StoreEntitySet="T_Transaction">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_User">
+            <EntityTypeMapping TypeName="IsTypeOf(BugTrackModel.T_User)">
+              <MappingFragment StoreEntitySet="T_User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="BugTrackModel.T_User">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="BugTrackModel.Store.CreateUser">
+                  <ScalarProperty Name="password" ParameterName="password" />
+                  <ScalarProperty Name="phone" ParameterName="phone" />
+                  <ScalarProperty Name="email" ParameterName="email" />
+                  <ScalarProperty Name="firstname" ParameterName="firstname" />
+                  <ScalarProperty Name="name" ParameterName="name" />
+                  <ResultBinding Name="id" ColumnName="id" /></InsertFunction>
+                <UpdateFunction FunctionName="BugTrackModel.Store.UpdateUser">
+                  <ScalarProperty Name="password" ParameterName="password" Version="Current" />
+                  <ScalarProperty Name="phone" ParameterName="phone" Version="Current" />
+                  <ScalarProperty Name="email" ParameterName="email" Version="Current" />
+                  <ScalarProperty Name="firstname" ParameterName="firstname" Version="Current" />
+                  <ScalarProperty Name="name" ParameterName="name" Version="Current" />
+                  <ScalarProperty Name="id" ParameterName="id" Version="Current" /></UpdateFunction>
+                <DeleteFunction FunctionName="BugTrackModel.Store.DeleteUser">
+                  <ScalarProperty Name="id" ParameterName="id" /></DeleteFunction></ModificationFunctionMapping></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_T_Bug_T_Project" TypeName="BugTrackModel.FK_T_Bug_T_Project" StoreEntitySet="T_Bug">
+            <EndProperty Name="T_Project">
+              <ScalarProperty Name="id" ColumnName="idProject" />
+            </EndProperty>
+            <EndProperty Name="T_Bug">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Transaction_T_Bug" TypeName="BugTrackModel.FK_T_Transaction_T_Bug" StoreEntitySet="T_Transaction">
+            <EndProperty Name="T_Bug">
+              <ScalarProperty Name="id" ColumnName="idBug" />
+            </EndProperty>
+            <EndProperty Name="T_Transaction">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Comment_T_User" TypeName="BugTrackModel.FK_T_Comment_T_User" StoreEntitySet="T_Comment">
+            <EndProperty Name="T_User">
+              <ScalarProperty Name="id" ColumnName="idUser" />
+            </EndProperty>
+            <EndProperty Name="T_Comment">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Transaction_T_User" TypeName="BugTrackModel.FK_T_Transaction_T_User" StoreEntitySet="T_Transaction">
+            <EndProperty Name="T_User">
+              <ScalarProperty Name="id" ColumnName="idUser" />
+            </EndProperty>
+            <EndProperty Name="T_Transaction">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_T_Comment_T_Bug" TypeName="BugTrackModel.FK_T_Comment_T_Bug" StoreEntitySet="T_Comment">
+            <EndProperty Name="T_Comment">
+              <ScalarProperty Name="id" ColumnName="id" /></EndProperty>
+            <EndProperty Name="T_Bug">
+              <ScalarProperty Name="id" ColumnName="idBug" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="modele" xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <EntityTypeShape EntityType="BugTrackModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.375" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackModel.T_Bug" Width="1.5" PointX="3" PointY="3.5" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackModel.T_Comment" Width="1.5" PointX="3" PointY="0.75" Height="1.5923063151041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackModel.T_Project" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackModel.T_Transaction" Width="1.5" PointX="6.5" PointY="0.875" Height="1.5923063151041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugTrackModel.T_User" Width="1.5" PointX="3" PointY="7" Height="2.5571907552083326" IsExpanded="true" />
+        <AssociationConnector Association="BugTrackModel.FK_T_Bug_T_Project" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.58550048828125" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="4.5855004882812489" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="4.58550048828125" />
+          <ConnectorPoint PointX="3" PointY="4.58550048828125" /></AssociationConnector>
+        <AssociationConnector Association="BugTrackModel.FK_T_Transaction_T_Bug" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.6316132509916121" />
+          <ConnectorPoint PointX="6.875" PointY="4.6316132509916121" />
+          <ConnectorPoint PointX="6.875" PointY="2.4673063151041665" />
+          </AssociationConnector>
+        <AssociationConnector Association="BugTrackModel.FK_T_Comment_T_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="3" PointY="8.1248478190104159" />
+          <ConnectorPoint PointX="2.625" PointY="8.1248478190104159" />
+          <ConnectorPoint PointX="2.625" PointY="1.5461531575520833" />
+          <ConnectorPoint PointX="3" PointY="1.5461531575520833" /></AssociationConnector>
+        <AssociationConnector Association="BugTrackModel.FK_T_Transaction_T_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.7219246419270817" />
+          <ConnectorPoint PointX="7.8437525" PointY="8.7219246419270817" />
+          <ConnectorPoint PointX="7.8437525" PointY="2.4673063151041665" />
+          </AssociationConnector>
+        <EntityTypeShape EntityType="BugTrackModel.T_BugCritic" Width="1.5" PointX="8.625" PointY="5.625" Height="1.0992643229166665" />
+        <InheritanceConnector EntityType="BugTrackModel.T_BugCritic" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="5.5853483072916674" />
+          <ConnectorPoint PointX="3.75" PointY="5.96875" />
+          <ConnectorPoint PointX="7.7604191666666669" PointY="5.9687499999999991" />
+          <ConnectorPoint PointX="7.9270858333333329" PointY="5.96875" />
+          <ConnectorPoint PointX="8.625" PointY="5.96875" />
+          </InheritanceConnector>
+        <EntityTypeShape EntityType="BugTrackModel.T_BugMinor" Width="1.5" PointX="10.125" PointY="4.625" Height="1.0992643229166665" />
+        <InheritanceConnector EntityType="BugTrackModel.T_BugMinor">
+          <ConnectorPoint PointX="3.75" PointY="3.5000000000000009" />
+          <ConnectorPoint PointX="3.75" PointY="3.25" />
+          <ConnectorPoint PointX="4.104166666666667" PointY="3.2499999999999996" />
+          <ConnectorPoint PointX="4.270833333333333" PointY="3.25" />
+          <ConnectorPoint PointX="6.791666666666667" PointY="3.2499999999999996" />
+          <ConnectorPoint PointX="6.958333333333333" PointY="3.25" />
+          <ConnectorPoint PointX="7.7604191666666669" PointY="3.2499999999999996" />
+          <ConnectorPoint PointX="7.9270858333333329" PointY="3.25" />
+          <ConnectorPoint PointX="9.75" PointY="3.25" />
+          <ConnectorPoint PointX="9.75" PointY="5.1746321614583337" />
+          <ConnectorPoint PointX="10.125" PointY="5.1746321614583337" /></InheritanceConnector>
+        <EntityTypeShape EntityType="BugTrackModel.T_BugTypo" Width="1.5" PointX="10" PointY="3.125" Height="1.0992643229166665" />
+        <InheritanceConnector EntityType="BugTrackModel.T_BugTypo">
+          <ConnectorPoint PointX="4.5" PointY="3.6153731946915566" />
+          <ConnectorPoint PointX="6.791666666666667" PointY="3.6153731946915562" />
+          <ConnectorPoint PointX="6.958333333333333" PointY="3.6153731946915566" />
+          <ConnectorPoint PointX="7.25" PointY="3.6153731946915566" />
+          <ConnectorPoint PointX="7.25" PointY="3.6095605824233119" />
+          <ConnectorPoint PointX="7.7604191666666669" PointY="3.6095605824233115" />
+          <ConnectorPoint PointX="7.9270858333333329" PointY="3.6095605824233119" />
+          <ConnectorPoint PointX="9.6666666666666661" PointY="3.6095605824233115" />
+          <ConnectorPoint PointX="9.8333333333333339" PointY="3.6095605824233119" />
+          <ConnectorPoint PointX="10" PointY="3.6095605824233119" /></InheritanceConnector>
+        <AssociationConnector Association="BugTrackModel.FK_T_Comment_T_Bug">
+          <ConnectorPoint PointX="4.1875" PointY="3.5" />
+          <ConnectorPoint PointX="4.1875" PointY="2.3423063151041665" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

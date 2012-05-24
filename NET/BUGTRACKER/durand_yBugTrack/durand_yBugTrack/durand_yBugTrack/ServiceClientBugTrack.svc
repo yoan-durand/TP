@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="durand_yBugTrack.ServiceClientBugTrack" CodeBehind="ServiceClientBugTrack.svc.cs" %>

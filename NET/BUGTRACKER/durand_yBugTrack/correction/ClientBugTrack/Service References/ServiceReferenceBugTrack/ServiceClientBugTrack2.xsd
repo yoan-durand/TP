@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/lemett_aBugTrack.DataAccess" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/lemett_aBugTrack.DataAccess" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51517/ServiceClientBugTrack.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfT_Bug">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Bug" nillable="true" type="tns:T_Bug" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Bug" nillable="true" type="tns:ArrayOfT_Bug" />
+  <xs:complexType name="T_Bug">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_Bug_Comment" nillable="true" type="tns:ArrayOfT_Bug_Comment" />
+          <xs:element minOccurs="0" name="T_Project" nillable="true" type="tns:T_Project" />
+          <xs:element minOccurs="0" name="T_ProjectReference" nillable="true" type="q1:EntityReferenceOfT_ProjectCp_S5ox3a" />
+          <xs:element minOccurs="0" name="T_Transaction" nillable="true" type="tns:ArrayOfT_Transaction" />
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_Bug" nillable="true" type="tns:T_Bug" />
+  <xs:complexType name="ArrayOfT_Bug_Comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Bug_Comment" nillable="true" type="tns:T_Bug_Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Bug_Comment" nillable="true" type="tns:ArrayOfT_Bug_Comment" />
+  <xs:complexType name="T_Bug_Comment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="T_Bug" nillable="true" type="tns:T_Bug" />
+          <xs:element minOccurs="0" name="T_BugReference" nillable="true" type="q2:EntityReferenceOfT_BugCp_S5ox3a" />
+          <xs:element minOccurs="0" name="T_Comment" nillable="true" type="tns:T_Comment" />
+          <xs:element minOccurs="0" name="T_CommentReference" nillable="true" type="q2:EntityReferenceOfT_CommentCp_S5ox3a" />
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_Bug_Comment" nillable="true" type="tns:T_Bug_Comment" />
+  <xs:complexType name="T_Comment">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="T_Bug_Comment" nillable="true" type="tns:ArrayOfT_Bug_Comment" />
+          <xs:element minOccurs="0" name="T_User" nillable="true" type="tns:T_User" />
+          <xs:element minOccurs="0" name="T_UserReference" nillable="true" type="q3:EntityReferenceOfT_UserCp_S5ox3a" />
+          <xs:element minOccurs="0" name="details" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="idBug" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_Comment" nillable="true" type="tns:T_Comment" />
+  <xs:complexType name="T_User">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="T_Comment" nillable="true" type="tns:ArrayOfT_Comment" />
+          <xs:element minOccurs="0" name="T_Transaction" nillable="true" type="tns:ArrayOfT_Transaction" />
+          <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="firstname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_User" nillable="true" type="tns:T_User" />
+  <xs:complexType name="ArrayOfT_Comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Comment" nillable="true" type="tns:T_Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Comment" nillable="true" type="tns:ArrayOfT_Comment" />
+  <xs:complexType name="ArrayOfT_Transaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Transaction" nillable="true" type="tns:T_Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Transaction" nillable="true" type="tns:ArrayOfT_Transaction" />
+  <xs:complexType name="T_Transaction">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="T_Bug" nillable="true" type="tns:T_Bug" />
+          <xs:element minOccurs="0" name="T_BugReference" nillable="true" type="q5:EntityReferenceOfT_BugCp_S5ox3a" />
+          <xs:element minOccurs="0" name="T_User" nillable="true" type="tns:T_User" />
+          <xs:element minOccurs="0" name="T_UserReference" nillable="true" type="q5:EntityReferenceOfT_UserCp_S5ox3a" />
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="statut" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_Transaction" nillable="true" type="tns:T_Transaction" />
+  <xs:complexType name="T_Project">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="T_Bug" nillable="true" type="tns:ArrayOfT_Bug" />
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_Project" nillable="true" type="tns:T_Project" />
+  <xs:complexType name="T_BugCritic">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:T_Bug">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_BugCritic" nillable="true" type="tns:T_BugCritic" />
+</xs:schema>

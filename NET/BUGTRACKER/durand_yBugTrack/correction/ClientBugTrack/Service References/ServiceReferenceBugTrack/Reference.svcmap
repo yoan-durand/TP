@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5fa5d722-bcdc-411c-8ac5-269590f512d5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51517/ServiceClientBugTrack.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceClientBugTrack.wsdl" MetadataType="Wsdl" ID="f79182c7-1399-463c-bfaf-c8aba654ad55" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?wsdl" />
+    <MetadataFile FileName="ServiceClientBugTrack.xsd" MetadataType="Schema" ID="75c43656-93f6-402f-9463-fed162f2ea4f" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?xsd=xsd5" />
+    <MetadataFile FileName="ServiceClientBugTrack1.xsd" MetadataType="Schema" ID="3eb55550-7d02-4627-8833-b0e9a5861a98" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?xsd=xsd4" />
+    <MetadataFile FileName="ServiceClientBugTrack2.xsd" MetadataType="Schema" ID="67acb949-bc1e-4fad-a62a-0074a9a3cb26" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceClientBugTrack3.xsd" MetadataType="Schema" ID="3c336730-65a6-4ce1-a986-a93964ccf64a" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceClientBugTrack4.xsd" MetadataType="Schema" ID="f5aa41e2-c682-4407-93ce-5534076ab7c0" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceClientBugTrack5.xsd" MetadataType="Schema" ID="6fc4ca94-fec7-43ec-bfd8-b4a94c92d198" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceClientBugTrack.disco" MetadataType="Disco" ID="1585d295-8c04-4558-81b0-ac26c9d05fbe" SourceId="1" SourceUrl="http://localhost:51517/ServiceClientBugTrack.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

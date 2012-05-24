@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="BugTrack" Class="DataClassesBugTrackDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=BugTrack;Integrated Security=True" SettingsObjectName="SyndicationServiceBugTrack.Properties.Settings" SettingsPropertyName="BugTrackConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.T_Bug" Member="T_Bugs">
+    <Type Name="T_Bug">
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="idProject" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="T_Project_T_Bug" Member="T_Project" ThisKey="idProject" OtherKey="id" Type="T_Project" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Project" Member="T_Projects">
+    <Type Name="T_Project">
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="version" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="startDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="T_Project_T_Bug" Member="T_Bugs" ThisKey="id" OtherKey="idProject" Type="T_Bug" />
+    </Type>
+  </Table>
+</Database>

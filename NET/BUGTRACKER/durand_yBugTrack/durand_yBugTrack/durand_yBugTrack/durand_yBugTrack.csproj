@@ -33,12 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -61,32 +66,30 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessManagement\Bug.cs" />
     <Compile Include="BusinessManagement\Comment.cs" />
+    <Compile Include="BusinessManagement\GenerateDocx.cs" />
     <Compile Include="BusinessManagement\Project.cs" />
     <Compile Include="BusinessManagement\Transaction.cs" />
     <Compile Include="BusinessManagement\User.cs" />
     <Compile Include="DataAccess\Bug.cs" />
     <Compile Include="DataAccess\Comment.cs" />
-    <Compile Include="DataAccess\modele.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>modele.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="DataAccess\GenerateDocx.cs" />
     <Compile Include="DataAccess\Project.cs" />
     <Compile Include="DataAccess\Transaction.cs" />
     <Compile Include="DataAccess\User.cs" />
-    <Compile Include="DBO\Bug.cs" />
-    <Compile Include="DBO\Comment.cs" />
-    <Compile Include="DBO\Project.cs" />
-    <Compile Include="DBO\Transaction.cs" />
-    <Compile Include="DBO\User.cs" />
+    <Compile Include="DBO\BugReport.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IServiceClientBugTrack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceClientBugTrack.svc.cs">
+      <DependentUpon>ServiceClientBugTrack.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -128,7 +131,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="ServiceClientBugTrack.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -156,12 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="DataAccess\modele.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>modele.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
