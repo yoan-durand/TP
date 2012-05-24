@@ -5,7 +5,8 @@
     <beans>
         <bean id="people" class="com.mti.sample.MTIPeople">
             <property name="login" value="durand_y"/>
-            <property name="fullName" value="Yoan Durand"/>
+            <property name="firstName" value="Yoan"/>
+            <property name="lastName" value="Durand"/>
         </bean>
         <bean id="hello" class="com.mti.sample.HelloWorld">
             <property name="people" ref="people"/>
