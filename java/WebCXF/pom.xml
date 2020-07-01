@@ -11,7 +11,7 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-    <mysql-version>5.1.6</mysql-version>
+    <mysql-version>8.0.16</mysql-version>
     <hibernate-version>3.2.6.ga</hibernate-version>
     <hibernate-annotations-version>3.3.1.GA</hibernate-annotations-version>
     <hibernate-entitymanager-version>3.3.2.GA</hibernate-entitymanager-version>
